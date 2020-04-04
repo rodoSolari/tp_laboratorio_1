@@ -19,4 +19,7 @@ int dividir(int primerNumero, int segundoNumero);
 //devuelve el factorial del primer numero ingresado
 int calcularFactorial(int num);
 
+//realizar la operacion que elije el usuario con los 2 numeros ingresados
+void realizarOperacion(int opcion,int primerOperando, int segundoOperando);
+
 #endif // FUNCIONES_H_INCLUDED
