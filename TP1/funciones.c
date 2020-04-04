@@ -49,6 +49,11 @@ int calcularFactorial(int num){
 }
 
 void realizarOperacion(int opcion,int primerOperando, int segundoOperando){
+    while(opcion>6 || opcion <1){
+        printf("Opcion incorrecta : por favor ingrese un numero valido");
+        imprimirMenu();
+        scanf("%d", &opcion);
+    }
     int resultado;
     if(opcion!=6){
         switch(opcion){

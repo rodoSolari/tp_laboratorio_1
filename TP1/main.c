@@ -13,11 +13,6 @@ int main(){
 
     imprimirMenu();
     scanf("%d",&opcion);
-    while(opcion>6 || opcion <1){
-        printf("Opcion incorrecta : por favor ingrese un numero valido");
-        imprimirMenu();
-        scanf("%d", &opcion);
-    }
     realizarOperacion(opcion,primerOperando,segundoOperando);
     return 0;
 }
