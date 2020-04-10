@@ -4,12 +4,12 @@
 void imprimirMenu(){
     printf("|Ingrese el numero de la opcion que quiera realizar :\n");
     printf(" -----------CALCULADORA------------ \n");
-    printf("|1) suma\n|");
+    printf(" |1) suma\n|");
     printf("|2) resta \n|");
     printf("|3) multiplicacion \n|");
     printf("|4) division \n|");
     printf("|5) factorial del primer operando\n");
-    printf("|6) salir \n");
+    printf(" |6) salir \n");
     printf("|                                   \n");
     printf(" ---------------------------------- \n");
 }
@@ -29,11 +29,11 @@ int multiplicar(int primerNumero, int segundoNumero){
     return primerNumero*segundoNumero;
 }
 
-int dividir(int primerNumero, int segundoNumero){
+float dividir(float primerNumero, float segundoNumero){
     if(segundoNumero == 0){
         printf("error : no se puede dividir por cero");
     }else{
-        printf("el resultado de la division : %d / %d es : ",primerNumero,segundoNumero);
+        printf("el resultado de la division : %d / %d es : ",(int)primerNumero,(int)segundoNumero);
         return primerNumero/segundoNumero;
     }
     return primerNumero/segundoNumero;
@@ -59,20 +59,24 @@ void realizarOperacion(int opcion,int primerOperando, int segundoOperando){
         switch(opcion){
             case 1:
                 resultado = suma(primerOperando,segundoOperando);
+                printf("%d",resultado);
                 break;
             case 2:
                 resultado = resta(primerOperando,segundoOperando);
+                printf("%d",resultado);
                 break;
             case 3:
                 resultado = multiplicar(primerOperando,segundoOperando);
+                printf("%d",resultado);
                 break;
             case 4:
-                resultado = dividir(primerOperando,segundoOperando);
+                printf("Casteado :: resultado : %f",dividir((float)primerOperando,(float)segundoOperando));
                 break;
             case 5:
                 resultado = calcularFactorial(primerOperando);
+                printf("%d",resultado);
                 break;
         }
-        printf("%d",resultado);
+        //printf("%d",resultado);
     }
 }

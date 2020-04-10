@@ -10,11 +10,11 @@
 
 1585961810 c:\users\montreal\desktop\lab y prog 1\tp1\funciones.h
 
-1585962581 source:c:\users\montreal\desktop\trabajos\tp1\funciones.c
+1585981999 source:c:\users\montreal\desktop\trabajos\tp1\funciones.c
 	<stdio.h>
 	<stdlib.h>
 
-1585962507 source:c:\users\montreal\desktop\trabajos\tp1\main.c
+1585980515 source:c:\users\montreal\desktop\trabajos\tp1\main.c
 	<stdio.h>
 	<stdlib.h>
 	"funciones.h"
