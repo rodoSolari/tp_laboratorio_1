@@ -3,16 +3,9 @@
 #include "funciones.h"
 
 int main(){
-    int primerOperando;
-    int segundoOperando;
     int opcion;
-    printf("Ingrese el primer operando : \n");
-    scanf("%d",&primerOperando);
-    printf("Ingrese el segundo operando : \n");
-    scanf("%d",&segundoOperando);
-
-    imprimirMenu();
+    imprimirMenu(0,0);
     scanf("%d",&opcion);
-    realizarOperacion(opcion,primerOperando,segundoOperando);
+    realizarOperacion(opcion,0,0);
     return 0;
 }
