@@ -4,28 +4,34 @@
 void imprimirMenu(){
     printf("|Ingrese el numero de la opcion que quiera realizar :\n");
     printf(" -----------CALCULADORA------------ \n");
-    printf(" |1) suma\n|");
-    printf("|2) resta \n|");
-    printf("|3) multiplicacion \n|");
-    printf("|4) division \n|");
-    printf("|5) factorial del primer operando\n");
-    printf(" |6) salir \n");
+    printf("1)Ingresar primer operando\n");
+    printf("2)Ingresar segundo operando\n");
+    printf("3)calcular todas las operaciones: \n")
+    printf(" |a) suma\n|");
+    printf(" |b) resta \n|");
+    printf(" |c) multiplicacion \n|");
+    printf(" |d) division \n|");
+    printf(" |e) factorial del primer operando\n");
+    printf("4)Informar resultados\n");
+    printf(" a)el resultado de la suma : %d + %d es : ",suma(primerNumero,segundoNumero));
+    printf(" b)el resultado de la resta : %d - %d es : ",resta(primerNumero,segundoNumero));
+    printf(" c)el resultado de la multiplicacion : %d * %d es : ",multiplicar(primerNumero,segundoNumero));
+    //dividir
+    printf(" e)El factorial de %d es: %d y el factorial de %d es %d: %d",primerNumero,calcularFactorial(primerNumero),segundoNumero,calcularFactorial(segundoNumero));
+    printf("5) salir \n");
     printf("|                                   \n");
     printf(" ---------------------------------- \n");
 }
 
 int suma(int primerNumero, int segundoNumero){
-    printf("el resultado de la suma : %d + %d es : ",primerNumero,segundoNumero);
     return primerNumero+segundoNumero;
 }
 
 int resta(int primerNumero, int segundoNumero){
-    printf("el resultado de la resta : %d - %d es : ",primerNumero,segundoNumero);
     return primerNumero-segundoNumero;
 }
 
 int multiplicar(int primerNumero, int segundoNumero){
-    printf("el resultado de la multiplicacion : %d * %d es : ",primerNumero,segundoNumero);
     return primerNumero*segundoNumero;
 }
 
