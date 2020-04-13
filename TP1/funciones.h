@@ -1,7 +1,7 @@
 #ifndef FUNCIONES_H_INCLUDED
 #define FUNCIONES_H_INCLUDED
 
-//imprime el menu de la calculadora
+//imprime el menu de la calculadora con los 2 numeros ingresados actualizados
 void imprimirMenu(int primerNumero,int segundoNumero);
 
 //Devuelve la suma de 2 numeros
