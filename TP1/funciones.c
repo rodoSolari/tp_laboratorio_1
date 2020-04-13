@@ -29,8 +29,8 @@ float dividir(float primerNumero, float segundoNumero){
     return primerNumero/segundoNumero;
 }
 
-int calcularFactorial(int num){
-    int factorial = 1;
+long int calcularFactorial(int num){
+    long int factorial = 1;
 
     for(int i=num;i>1;i--){
         factorial=factorial*i;
@@ -69,7 +69,7 @@ void realizarOperacion(int opcion,int primerNumero,int segundoNumero){
                 }else{
                     printf(" d)el resultado de la division : %d / %d es : %f\n",primerNumero,segundoNumero,dividir((float)primerNumero,(float)segundoNumero));
                 }
-                printf(" e)El factorial de %d es: %d y el factorial de %d es: %d\n",primerNumero,calcularFactorial(primerNumero),segundoNumero,calcularFactorial(segundoNumero));
+                printf(" e)El factorial de %d es: %ld y el factorial de %d es: %ld\n",primerNumero,calcularFactorial(primerNumero),segundoNumero,calcularFactorial(segundoNumero));
                 break;
             default:
                 printf("Opcion incorrecta : por favor ingrese un numero valido");
