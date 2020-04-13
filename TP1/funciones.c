@@ -26,12 +26,6 @@ int multiplicar(int primerNumero, int segundoNumero){
 }
 
 float dividir(float primerNumero, float segundoNumero){
-    if(segundoNumero == 0){
-        printf("error : no se puede dividir por cero");
-    }else{
-        printf("el resultado de la division : %d / %d es : ",(int)primerNumero,(int)segundoNumero);
-        return primerNumero/segundoNumero;
-    }
     return primerNumero/segundoNumero;
 }
 
@@ -50,12 +44,15 @@ void realizarOperacion(int opcion,int primerNumero,int segundoNumero){
             case 1:
                 printf("Ingrese el primer operando : \n");
                 scanf("%d",&primerNumero);
+                system("cls");
                 break;
             case 2:
                 printf("Ingrese el segundo operando : \n");
                 scanf("%d",&segundoNumero);
+                system("cls");
                 break;
             case 3:
+                system("cls");
                 printf(" |a) suma (%d + %d)\n|",primerNumero,segundoNumero);
                 printf(" |b) resta (%d - %d) \n|",primerNumero,segundoNumero);
                 printf(" |c) multiplicacion (%d * %d)\n|",primerNumero,segundoNumero);
@@ -63,10 +60,15 @@ void realizarOperacion(int opcion,int primerNumero,int segundoNumero){
                 printf(" |e) factorial del primer operando\n");
                 break;
             case 4:
+                system("cls");
                 printf(" a)el resultado de la suma : %d + %d es : %d\n",primerNumero,segundoNumero,suma(primerNumero,segundoNumero));
                 printf(" b)el resultado de la resta : %d - %d es : %d\n",primerNumero,segundoNumero,resta(primerNumero,segundoNumero));
                 printf(" c)el resultado de la multiplicacion : %d * %d es : %d\n",primerNumero,segundoNumero,multiplicar(primerNumero,segundoNumero));
-                printf(" d");
+                if(segundoNumero == 0){
+                    printf("error : no se puede dividir por cero");
+                }else{
+                    printf(" d)el resultado de la division : %d / %d es : %f\n",primerNumero,segundoNumero,dividir((float)primerNumero,(float)segundoNumero));
+                }
                 printf(" e)El factorial de %d es: %d y el factorial de %d es: %d\n",primerNumero,calcularFactorial(primerNumero),segundoNumero,calcularFactorial(segundoNumero));
                 break;
             default:
