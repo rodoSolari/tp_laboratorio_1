@@ -4,8 +4,10 @@
 
 int main(){
     int opcion;
-    imprimirMenu(0,0);
-    scanf("%d",&opcion);
-    realizarOperacion(opcion,0,0);
+    int primerNumero = 0;
+    int segundoNumero = 0;
+    imprimirMenu(primerNumero,segundoNumero);
+    scanf("%d", &opcion);
+    realizarOperacion(opcion,primerNumero,segundoNumero);
     return 0;
 }

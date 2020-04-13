@@ -20,6 +20,6 @@ int dividir(int primerNumero, int segundoNumero);
 int calcularFactorial(int num);
 
 //realizar la operacion que elije el usuario con los 2 numeros ingresados
-void realizarOperacion(int opcion, int primerNumero, int segundoNumero);
+void realizarOperacion(int opcion,int primerNumero,int segundoNumero);
 
 #endif // FUNCIONES_H_INCLUDED

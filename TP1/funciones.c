@@ -44,16 +44,8 @@ int calcularFactorial(int num){
     return factorial;
 }
 
-void realizarOperacion(int opcion, int primerNumero, int segundoNumero){
-    while(opcion>5 || opcion <1){
-        printf("Opcion incorrecta : por favor ingrese un numero valido");
-        imprimirMenu(primerNumero,segundoNumero);
-        scanf("%d", &opcion);
-    }
-
-    int resultado;
+void realizarOperacion(int opcion,int primerNumero,int segundoNumero){
     while(opcion!=5){
-        imprimirMenu(primerNumero,segundoNumero);
         switch(opcion){
             case 1:
                 printf("Ingrese el primer operando : \n");
@@ -71,12 +63,16 @@ void realizarOperacion(int opcion, int primerNumero, int segundoNumero){
                 printf(" |e) factorial del primer operando\n");
                 break;
             case 4:
-                printf(" a)el resultado de la suma : %d + %d es : \n",primerNumero,segundoNumero,suma(primerNumero,segundoNumero));
-                printf(" b)el resultado de la resta : %d - %d es : \n",primerNumero,segundoNumero,resta(primerNumero,segundoNumero));
-                printf(" c)el resultado de la multiplicacion : %d * %d es : \n",primerNumero,segundoNumero,multiplicar(primerNumero,segundoNumero));
+                printf(" a)el resultado de la suma : %d + %d es : %d\n",primerNumero,segundoNumero,suma(primerNumero,segundoNumero));
+                printf(" b)el resultado de la resta : %d - %d es : %d\n",primerNumero,segundoNumero,resta(primerNumero,segundoNumero));
+                printf(" c)el resultado de la multiplicacion : %d * %d es : %d\n",primerNumero,segundoNumero,multiplicar(primerNumero,segundoNumero));
                 printf(" d");
-                printf(" e)El factorial de %d es: %d y el factorial de %d es %d: %d\n",primerNumero,calcularFactorial(primerNumero),segundoNumero,calcularFactorial(segundoNumero));
+                printf(" e)El factorial de %d es: %d y el factorial de %d es: %d\n",primerNumero,calcularFactorial(primerNumero),segundoNumero,calcularFactorial(segundoNumero));
                 break;
+            default:
+                printf("Opcion incorrecta : por favor ingrese un numero valido");
         }
+        imprimirMenu(primerNumero,segundoNumero);
+        scanf("%d", &opcion);
     }
 }
