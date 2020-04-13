@@ -14,10 +14,10 @@ int resta(int primerNumero, int segundoNumero);
 int multiplicar(int primerNumero, int segundoNumero);
 
 //Devuelve la division de 2 numeros
-int dividir(int primerNumero, int segundoNumero);
+float dividir(int primerNumero, int segundoNumero);
 
 //devuelve el factorial del primer numero ingresado
-int calcularFactorial(int num);
+long int calcularFactorial(int num);
 
 //realizar la operacion que elije el usuario con los 2 numeros ingresados
 void realizarOperacion(int opcion,int primerNumero,int segundoNumero);
