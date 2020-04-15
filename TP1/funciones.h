@@ -5,10 +5,10 @@
 void imprimirMenu(float primerNumero,float segundoNumero);
 
 //Devuelve la suma de 2 numeros
-float suma(float primerNumero,float segundoNumero);
+float sumar(float primerNumero,float segundoNumero);
 
 //Devuelve la resta de 2 numeros
-float resta(float primerNumero,float segundoNumero);
+float restar(float primerNumero,float segundoNumero);
 
 //Devuelve la multiplicacion de 2 numeros
 float multiplicar(float primerNumero,float segundoNumero);

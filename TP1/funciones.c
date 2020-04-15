@@ -13,11 +13,11 @@ void imprimirMenu(float primerNumero,float segundoNumero){
     printf(" ---------------------------------- \n");
 }
 
-float suma(float primerNumero,float segundoNumero){
+float sumar(float primerNumero,float segundoNumero){
     return primerNumero+segundoNumero;
 }
 
-float resta(float primerNumero,float segundoNumero){
+float restar(float primerNumero,float segundoNumero){
     return primerNumero-segundoNumero;
 }
 
@@ -31,7 +31,6 @@ float dividir(float primerNumero, float segundoNumero){
 
 long int calcularFactorial(int num){
     long int factorial = 1;
-
     for(int i=num;i>1;i--){
         factorial=factorial*i;
     }
@@ -39,6 +38,7 @@ long int calcularFactorial(int num){
 }
 
 void realizarOperacion(int opcion,float primerNumero, float segundoNumero){
+    int activarInformeResultado = 0; //se ultiliza para que realice primero las operaciones para luego activar la opcion 4
     while(opcion!=5){
         switch(opcion){
             case 1:
@@ -53,35 +53,49 @@ void realizarOperacion(int opcion,float primerNumero, float segundoNumero){
                 break;
             case 3:
                 system("cls");
+                float suma = sumar(primerNumero,segundoNumero);
+                float resta = restar(primerNumero,segundoNumero);
+                float multiplicacion = multiplicar(primerNumero,segundoNumero);
+                float division = division = dividir(primerNumero,segundoNumero);;
+                long int factorialPrimero;
+                long int factorialSegundo;
                 printf(" |a) suma (%.2f + %.2f)\n|",primerNumero,segundoNumero);
                 printf(" |b) resta (%.2f - %.2f) \n|",primerNumero,segundoNumero);
                 printf(" |c) multiplicacion (%.2f * %.2f)\n|",primerNumero,segundoNumero);
                 printf(" |d) division (%.2f/%.2f) \n|",primerNumero,segundoNumero);
                 printf(" |e) factorial de A = %.2f y B = %.2f\n",primerNumero,segundoNumero);
+                factorialPrimero = calcularFactorial((int)primerNumero);
+                factorialSegundo = calcularFactorial((int)segundoNumero);
+                activarInformeResultado = 1;   //para poder informar los resultados activando la opcion 4
                 break;
             case 4:
-                system("cls");
-                printf(" a)el resultado de la suma : %.2f + %.2f es : %.2f\n",primerNumero,segundoNumero,suma(primerNumero,segundoNumero));
-                printf(" b)el resultado de la resta : %.2f - %.2f es : %.2f\n",primerNumero,segundoNumero,resta(primerNumero,segundoNumero));
-                printf(" c)el resultado de la multiplicacion : %.2f * %.2f es : %.2f\n",primerNumero,segundoNumero,multiplicar(primerNumero,segundoNumero));
-                if(segundoNumero == 0){
-                    printf("error : no se puede dividir por cero");
+                if(activarInformeResultado){ //si el usuario ingreso la opcion 3 para realizar las operaciones, entonces se informan los resultados
+                    system("cls");
+                    printf(" a)el resultado de la suma : %.2f + %.2f es : %.2f\n",primerNumero,segundoNumero,suma);
+                    printf(" b)el resultado de la resta : %.2f - %.2f es : %.2f\n",primerNumero,segundoNumero,resta);
+                    printf(" c)el resultado de la multiplicacion : %.2f * %.2f es : %.2f\n",primerNumero,segundoNumero,multiplicacion);
+                    if(segundoNumero == 0){
+                        printf(" d)error : no se puede dividir por cero\n");
+                    }else{
+                        printf(" d)el resultado de la division : %.2f / %.2f es : %f\n",primerNumero,segundoNumero,division);
+                    }
+                    if(primerNumero<0){
+                        printf("    e)Factorial: Error, no se puede realizar el factorial de %d\n",(int)segundoNumero);
+                    }else{
+                        printf(" e)El factorial de %d es: %ld\n",(int)primerNumero,factorialPrimero);
+                    }
+                    if(primerNumero<0){
+                        printf(" e)Error, no se puede realizar el factorial de %d\n",(int)segundoNumero);
+                    }else{
+                        printf(" el factorial de %d es: %ld\n",(int)segundoNumero,factorialSegundo);
+                    }
                 }else{
-                    printf(" d)el resultado de la division : %.2f / %.2f es : %f\n",primerNumero,segundoNumero,dividir(primerNumero,segundoNumero));
+                    printf("por favor, ingrese la opcion 3 para realizar las operaciones\n");
                 }
-                if(primerNumero<0){
-                    printf("Error, no se puede realizar el factorial de %d\n",(int)segundoNumero);
-                }else{
-                    printf(" e)El factorial de %d es: %ld\n",(int)primerNumero,calcularFactorial((int)primerNumero));
-                }
-                if(primerNumero<0){
-                    printf("Error, no se puede realizar el factorial de %d\n",(int)segundoNumero);
-                }else{
-                    printf(" el factorial de %d es: %ld\n",(int)segundoNumero,calcularFactorial((int)segundoNumero));
-                }
+                activarInformeResultado = 0;  // se vuelve a reiniciar por si ingresa algun cambio en los numeros
                 break;
             default:
-                printf("Opcion incorrecta : por favor ingrese un numero valido");
+                printf("Opcion incorrecta : por favor ingrese un numero valido\n");
         }
         imprimirMenu(primerNumero,segundoNumero);
         scanf("%d", &opcion);
