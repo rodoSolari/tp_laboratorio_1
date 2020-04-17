@@ -30,7 +30,7 @@ float dividir(float primerNumero, float segundoNumero){
     return primerNumero/segundoNumero;
 }
 
-long int calcularFactorial(int num){
+unsigned long int calcularFactorial(int num){
     long int factorial = 1;
     for(int i=num;i>1;i--){
         factorial=factorial*i;
