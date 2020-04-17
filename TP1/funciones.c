@@ -3,6 +3,7 @@
 
 void imprimirMenu(float primerNumero,float segundoNumero){
     printf("|Ingrese el numero de la opcion que quiera realizar :\n");
+    printf("\n");
     printf(" -----------CALCULADORA------------ \n");
     printf("1)Ingresar primer operando  :  A = %.2f\n", primerNumero);
     printf("2)Ingresar segundo operando  : B = %.2f\n", segundoNumero);
@@ -57,8 +58,8 @@ void realizarOperacion(int opcion,float primerNumero, float segundoNumero){
                 float resta = restar(primerNumero,segundoNumero);
                 float multiplicacion = multiplicar(primerNumero,segundoNumero);
                 float division = division = dividir(primerNumero,segundoNumero);;
-                long int factorialPrimero;
-                long int factorialSegundo;
+                unsigned long int factorialPrimero;
+                unsigned long int factorialSegundo;
                 printf(" |a) suma (%.2f + %.2f)\n|",primerNumero,segundoNumero);
                 printf(" |b) resta (%.2f - %.2f) \n|",primerNumero,segundoNumero);
                 printf(" |c) multiplicacion (%.2f * %.2f)\n|",primerNumero,segundoNumero);
@@ -82,12 +83,12 @@ void realizarOperacion(int opcion,float primerNumero, float segundoNumero){
                     if(primerNumero<0){
                         printf("    e)Factorial: Error, no se puede realizar el factorial de %d\n",(int)segundoNumero);
                     }else{
-                        printf(" e)El factorial de %d es: %ld\n",(int)primerNumero,factorialPrimero);
+                        printf(" e)El factorial de %d es: %lu\n",(int)primerNumero,factorialPrimero);
                     }
                     if(primerNumero<0){
                         printf(" e)Error, no se puede realizar el factorial de %d\n",(int)segundoNumero);
                     }else{
-                        printf(" el factorial de %d es: %ld\n",(int)segundoNumero,factorialSegundo);
+                        printf(" el factorial de %d es: %lu\n",(int)segundoNumero,factorialSegundo);
                     }
                 }else{
                     printf("por favor, ingrese la opcion 3 para realizar las operaciones\n");
