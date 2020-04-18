@@ -26,6 +26,7 @@ float multiplicar(float primerNumero,float segundoNumero){
     return primerNumero*segundoNumero;
 }
 
+
 float dividir(float primerNumero, float segundoNumero){
     return primerNumero/segundoNumero;
 }
