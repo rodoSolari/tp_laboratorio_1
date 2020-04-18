@@ -85,7 +85,7 @@ void realizarOperacion(int opcion,float primerNumero, float segundoNumero){
                     }else{
                         printf(" e)El factorial de %d es: %lu\n",(int)primerNumero,factorialPrimero);
                     }
-                    if(primerNumero<0){
+                    if(segundoNumero<0){
                         printf(" e)Error, no se puede realizar el factorial de %d\n",(int)segundoNumero);
                     }else{
                         printf(" el factorial de %d es: %lu\n",(int)segundoNumero,factorialSegundo);
