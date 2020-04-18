@@ -38,6 +38,7 @@ unsigned long int calcularFactorial(int num){
     return factorial;
 }
 
+
 void realizarOperacion(int opcion,float primerNumero, float segundoNumero){
     int activarInformeResultado = 0; //se ultiliza para que realice primero las operaciones para luego activar la opcion 4
     while(opcion!=5){
