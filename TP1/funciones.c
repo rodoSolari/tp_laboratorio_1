@@ -57,7 +57,7 @@ void realizarOperacion(int opcion,float primerNumero, float segundoNumero){
                 float suma = sumar(primerNumero,segundoNumero);
                 float resta = restar(primerNumero,segundoNumero);
                 float multiplicacion = multiplicar(primerNumero,segundoNumero);
-                float division = division = dividir(primerNumero,segundoNumero);;
+                float division = dividir(primerNumero,segundoNumero);
                 unsigned long int factorialPrimero;
                 unsigned long int factorialSegundo;
                 printf(" |a) suma (%.2f + %.2f)\n|",primerNumero,segundoNumero);
