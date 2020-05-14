@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1589323938 source:c:\users\montreal\desktop\lab y prog 1\trabajos\tp2\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1589333803 source:c:\users\montreal\desktop\lab y prog 1\trabajos\tp2\funcionesparatiposdedatos.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"funcionesParaTiposDeDatos.h"
+
+1589333783 c:\users\montreal\desktop\lab y prog 1\trabajos\tp2\funcionesparatiposdedatos.h
+	"arrayEmployees.h"
+
+1589324642 c:\users\montreal\desktop\lab y prog 1\trabajos\tp2\arrayemployees.h
+	<string.h>
+
+1589331280 source:c:\users\montreal\desktop\lab y prog 1\trabajos\tp2\arrayemployees.c
+	"ArrayEmployees.h"
+	"funcionesParaTiposDeDatos.h"
+
