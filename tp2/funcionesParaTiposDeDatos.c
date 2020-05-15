@@ -34,6 +34,41 @@ int employeeSearchFirstEmpty(Employee* array,int limite)
 
 
 /**
+ * \brief Solicita un numero flotante al usuario, luego de verificarlo devuelve el resultado
+ * \param pResultado Puntero al espacio de memoria donde se dejara el resultado de la funcion
+ * \param mensaje Es el mensaje a ser mostrado
+ * \param mensajeError Es el mensaje de Error a ser mostrado
+ * \param minimo Es el numero maximo a ser aceptado
+ * \param maximo Es el minimo minimo a ser aceptado
+ * \return Retorna 0 si se obtuvo el numero flotante y -1 si no
+ *
+ */
+int utn_getNumeroFlotante(float* pResultado, char* mensaje, char* mensajeError, float minimo, float maximo, int reintentos)
+{
+	float bufferFloat;
+	int retorno = -1;
+	while(reintentos>=0)
+	{
+		reintentos--;
+		printf("%s",mensaje);
+		if(getFloat(&bufferFloat) == 0)
+		{
+			if(bufferFloat >= minimo && bufferFloat <= maximo)
+			{
+				*pResultado = bufferFloat;
+				retorno = 0;
+				break;
+			}
+		}
+		printf("%s",mensajeError);
+	}
+	return retorno;
+}
+
+
+
+
+/**
  * \brief 	Lee de stdin hasta que encuentra un '\n' o hasta que haya copiado en cadena
  * 			un máximo de 'longitud - 1' caracteres.
  * \param pResultado Puntero al espacio de memoria donde se copiara la cadena obtenida
@@ -216,27 +251,25 @@ static int esFlotante(char* cadena)
  * \return Retorna 0 si se obtuvo el numero flotante y -1 si no
  *
  */
-int utn_getNumeroFlotante(float* pResultado, char* mensaje, char* mensajeError, float minimo, float maximo, int reintentos)
+int utn_getNombre(char* pResultado, int longitud,char* mensaje, char* mensajeError, int reintentos)
 {
-	float bufferFloat;
+	char bufferString[4096];
 	int retorno = -1;
 	while(reintentos>=0)
 	{
 		reintentos--;
 		printf("%s",mensaje);
-		if(getFloat(&bufferFloat) == 0)
+		if(getNombre(bufferString,sizeof(bufferString)) == 0 && strnlen(bufferString,sizeof(bufferString)) < longitud )
 		{
-			if(bufferFloat >= minimo && bufferFloat <= maximo)
-			{
-				*pResultado = bufferFloat;
-				retorno = 0;
-				break;
-			}
+			strncpy(pResultado,bufferString,longitud);
+			retorno = 0;
+			break;
 		}
 		printf("%s",mensajeError);
 	}
 	return retorno;
 }
+
 
 
 
@@ -300,7 +333,7 @@ static int esNombre(char* cadena,int longitud)
  * \return Retorna 0 si se obtuvo el numero flotante y -1 si no
  *
  */
-int utn_getNombre(char* pResultado, int longitud,char* mensaje, char* mensajeError, int reintentos)
+/*int utn_getNombre(char* pResultado, int longitud,char* mensaje, char* mensajeError, int reintentos)
 {
 	char bufferString[4096];
 	int retorno = -1;
@@ -317,7 +350,4 @@ int utn_getNombre(char* pResultado, int longitud,char* mensaje, char* mensajeErr
 		printf("%s",mensajeError);
 	}
 	return retorno;
-}
-
-
-
+}*/
