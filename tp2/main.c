@@ -9,7 +9,14 @@ int main()
     int employeeCargado = 0;
     int opcion;
     int idEliminar;
+    int orden;
+    if(initEmployees(listadoEmployees,MAX_EMPLOYEES)==0){
+        printf("__listado inicializado__\n");
+    }else{
+        printf("Error al inicializar el listado\n");
+    }
     Employee newEmployee;
+
     do
     {
         printf("1.Cargar un empleados\n");
@@ -19,32 +26,30 @@ int main()
         printf("5.Ordenar empleados\n");
         printf("6.SALIR\n");
         printf("ELIJA UNA OPCION: ");
-        scanf("%d", &opcion);
+        scanf("%d",&opcion);
         switch(opcion)
         {
             case 1:
-                if(addEmployee(listadoEmployees,MAX_EMPLOYEES,newEmployee.id,newEmployee.name,newEmployee.lastName,newEmployee.salary,newEmployee.sector)==0){
-                    employeeCargado++;
-                    printf("Cargado nuevo empleado!\n");
-                }
+                createNewEmployee(listadoEmployees,newEmployee,MAX_EMPLOYEES);
+                employeeCargado++;
                 break;
             case 2:
                 if(employeeCargado>=1){
-
+                    //modificarEmpleado(listadoEmployees,MAX_EMPLOYEES);
                 }else{
                     printf("No hay empleados cargados en la lista, por favor ingrese primero la opcion 1");
                 }
                 break;
             case 3:
                 if(employeeCargado>=1){
-                    printf("Ingrese el id del empleado");
+                    printf("Ingrese el id del empleado: ");
                     scanf("%d",&idEliminar);
                     if(removeEmployee(listadoEmployees,MAX_EMPLOYEES,idEliminar)==0){
-                        printf("Eliminado con exito!");
+                        printf("Eliminado con exito!\n");
                         employeeCargado--;
-                    }else{
-                        printf("No hay empleados cargados en la lista, por favor ingrese primero la opcion 1");
                     }
+                }else{
+                    printf("No hay empleados cargados en la lista, por favor ingrese primero la opcion 1");
                 }
                 break;
             case 4:
@@ -55,7 +60,10 @@ int main()
                 }
                 break;
             case 5:
-
+                printf("ingrese el orden\n    1:ascendente    0:descendente");
+                scanf("%d",&orden);
+                sortEmployees(listadoEmployees,MAX_EMPLOYEES,orden);
+                //informarPromedio();
                 break;
         }
 

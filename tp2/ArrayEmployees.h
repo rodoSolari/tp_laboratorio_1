@@ -4,6 +4,10 @@
 #include <stdio.h>
 #define NAME_LEN 51
 #define LASTNAME_LEN 51
+#define UP 1
+#define DOWN 0
+#define EMPTY 1
+#define FULL 0
 
 typedef struct{
     int id;
@@ -21,5 +25,6 @@ int removeEmployee(Employee* list, int len, int id);
 int sortEmployees(Employee* list, int len, int order);
 int printEmployees(Employee* list, int length);
 void printOneEmployee(Employee list);
-Employee createNewEmployee();
+int employeeSearchFirstEmpty(Employee* array,int limite);
+void createNewEmployee();
 #endif // ARRAYEMPLOYEES_H_INCLUDED

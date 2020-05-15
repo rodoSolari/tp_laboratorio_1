@@ -9,13 +9,15 @@
 * \return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
 *
 */
+static int contadorId = 0;
+
 int initEmployees(Employee* list, int len){
-int respuesta = -1;
+    int respuesta = -1;
 	int i;
 	if(list != NULL && len > 0){
 		respuesta = 0;
 		for(i=0;i<len;i++){
-			list[i].isEmpty = 1;
+			list[i].isEmpty = EMPTY;
 		}
 	}
 	return respuesta;
@@ -34,56 +36,66 @@ int respuesta = -1;
 * \return int Return (-1) if Error [Invalid length or NULL pointer or without
 free space] - (0) if Ok
 */
-/*Employee createNewEmployee(){
-    Employee hola;
-    char nombre[51];
-    if(utn_getNombre(nombre,NAME_LEN,"\nNombre?\n","\nERROR\n",2) == 0)
-        utn_getNombre(auxEmployee.lastName,LASTNAME_LEN,"\nApellido?\n","\nERROR\n",2) == 0 &&
-        utn_getNumero(&auxEmployee.sector,"\nSector?\n","\nERROR\n",2) == 0 &&
-        utn_getNumeroFlotante(&auxEmployee.salary,"\nSalario?\n","\nERROR\n",2) == 0){
-        printf("\nID: ");
-        scanf("%d",&auxEmployee.id);
-        printf("Nombre: ");
-        scanf("%s",auxEmployee.name);
-        printf("\nApellido: ");
-        scanf("%s",auxEmployee.lastName);
-        printf("\nSector: ");
-        scanf("%d",&auxEmployee.sector);
-        printf("\nSalario: ");
-        scanf("%f",&auxEmployee.salary);
+void createNewEmployee(Employee* list,Employee auxEmployee,int len){
+    int r;
 
-        }
+    getString(auxEmployee.name,"Nombre : ","Error : por favor ingreselo de nuevo\n");
+    getString(auxEmployee.lastName,"Apellido : ","Error : por favor ingreselo de nuevo\n");
+    printf("\nSector: ");
+    scanf("%d",&auxEmployee.sector);
+    printf("\nSalario: ");
+    scanf("%f",&auxEmployee.salary);
+    auxEmployee.id = contadorId;
+    printf("id que va a contener : %d\n",auxEmployee.id);
+    contadorId++;
+    r=addEmployee(list,len,auxEmployee.id,auxEmployee.name,auxEmployee.lastName,auxEmployee.sector,auxEmployee.salary);
+    if(r==0){
+        printf("carga completada!\n");
+    }else{
+        printf("error!\n");
+    }
 
-    return hola;
-}*/
+}
+
+int employeeSearchFirstEmpty(Employee* array,int tam){
+	int respuesta = -1;
+	int i;
+	if(array != NULL && tam > 0){
+		for(i=0;i<tam;i++){
+			if(array[i].isEmpty == EMPTY){
+				respuesta = i;
+				break;
+			}
+		}
+	}
+	return respuesta;
+}
+
 
 int addEmployee(Employee* list, int len, int id, char name[],char lastName[],float salary,int sector){
     int respuesta = -1;
-    //int indice = employeeSearchFirstEmpty(list,len);
-	if(list != NULL){
-        if(utn_getNumero(&sector,"\nSector?\n","\nERROR\n",2) == 0 &&
-        utn_getNumeroFlotante(&salary,"\nSalario?\n","\nERROR\n",0,20000,2) == 0){
-            respuesta = 0;
-            list[0].id = id;
-            strcpy(list[0].name,name);
-            strcpy(list[0].lastName,lastName);
-            list[0].salary = salary;
-            list[0].sector = sector;
-        }
-	}
+    int indice = employeeSearchFirstEmpty(list,len);
+    printf("indice libre : %d\n", indice);
+	if(list != NULL && indice>=0){
+        list[indice].id = id;
+        strcpy(list[indice].name,name);
+        strcpy(list[indice].lastName,lastName);
+        list[indice].salary = salary;
+        list[indice].sector = sector;
+        list[indice].isEmpty = FULL;
+        respuesta = 0;
+        indice++;
+    }
 	return respuesta;
 }
 
 int findEmployeeById(Employee* list, int len,int id){
     int respuesta = -1;
 	int i;
-	if(list != NULL && len > 0 && id >= 0)
-	{
+	if(list != NULL && len > 0 && id >= 0){
 		respuesta = 0;
-		for(i=0;i<len;i++)
-		{
-			if(list[i].id == id)
-			{
+		for(i=0;i<len;i++){
+			if(list[i].id == id){
 				respuesta = i;
 				break;
 			}
@@ -95,13 +107,12 @@ int findEmployeeById(Employee* list, int len,int id){
 int removeEmployee(Employee* list, int len, int id){
     int respuesta = -1;
     int posicionId = findEmployeeById(list,len,id);
-	if(list != NULL && len > 0 && posicionId < len && posicionId >= 0 && list[posicionId].isEmpty == 0)
-	{
-		list[posicionId].isEmpty = 1;
+    printf("Encontre al id a buscar : %d\n",posicionId);
+	if(list != NULL && len > 0 && posicionId < len && posicionId >= 0 && list[posicionId].isEmpty == FULL){
+		list[posicionId].isEmpty = EMPTY;
 		respuesta = 0;
 	}
 	return respuesta;
-    return 0;
 }
 
 int employeeSearchId(Employee list[], int limite, int valorBuscado){
@@ -119,6 +130,17 @@ int employeeSearchId(Employee list[], int limite, int valorBuscado){
 	return respuesta;
 }
 
+/*void modificarEmpleado(Employee listado[],int id, int tam){
+    idAbuscar=employeeSearchId(listado, tam, id);
+    int opcion;
+    printf("1. Nombre:\n2.Apellido\n3.Salario\n4.Sector");
+    printf("Ingrese la opcion que quiera modificar del empleado: \n");
+    switch(opcion){
+        case 1:
+
+    }
+}*/
+
 int sortEmployees(Employee* list, int len, int order){
     int i;
     int j;
@@ -126,13 +148,14 @@ int sortEmployees(Employee* list, int len, int order){
 
     for(i=0; i<len-1; i++){
         for(j=i+1; j<len; j++){
-            if(strcpy(list[i].lastName,list[j].lastName)>0){
-                auxEmployee = list[i];
-                list[i] = list[j];
-                list[j] = auxEmployee;
-            }
-            else{
-                if(list[i].sector>list[j].sector){
+            if(order==UP){
+                if(stricmp(list[i].lastName,list[j].lastName)>0 || (stricmp(list[i].lastName,list[j].lastName)==0 && list[i].sector>list[j].sector)){
+                    auxEmployee = list[i];
+                    list[i] = list[j];
+                    list[j] = auxEmployee;
+                }
+            }else if(order==DOWN){
+                if(stricmp(list[i].lastName,list[j].lastName)<0 || (stricmp(list[i].lastName,list[j].lastName)==0 && list[i].sector<list[j].sector)){
                         auxEmployee = list[i];
                         list[i] = list[j];
                         list[j] = auxEmployee;
@@ -140,6 +163,8 @@ int sortEmployees(Employee* list, int len, int order){
             }
         }
     }
+    printf("LISTA ORDENADA : \n");
+    printEmployees(list,len);
     return 0;
 }
 
@@ -154,7 +179,9 @@ void printOneEmployee(Employee list){
 int printEmployees(Employee* list, int length){
     int i=0;
     for(i=0;i<length;i++){
-        printOneEmployee(list[i]);
+        if(list[i].isEmpty==FULL){
+            printOneEmployee(list[i]);
+        }
     }
     return 0;
 }
