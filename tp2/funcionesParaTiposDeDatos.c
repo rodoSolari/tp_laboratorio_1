@@ -30,17 +30,17 @@ int esNumerico(char stringNumber[]){
     }
 }*/
 
-void getInt(int number, char* message, char* errorMessage){
+void getInt(int* number, char* message, char* errorMessage){
     char string[50];
     printf("%s", message);
     fflush(stdin);
     gets(string);
-    number=atoi(string);
+    *number=atoi(string);
     while(esNumerico(string)==0){
         printf("%s", errorMessage);
         fflush(stdin);
         gets(string);
-        number=atoi(string);
+        *number=atoi(string);
     }
 }
 
