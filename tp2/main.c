@@ -63,7 +63,7 @@ int main()
                 printf("ingrese el orden\n    1:ascendente    0:descendente");
                 scanf("%d",&orden);
                 sortEmployees(listadoEmployees,MAX_EMPLOYEES,orden);
-                //informarPromedio();
+                //informarPromedio(listadoEmployees,MAX_EMPLOYEES,orden);
                 break;
         }
 

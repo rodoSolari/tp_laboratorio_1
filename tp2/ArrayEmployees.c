@@ -41,14 +41,16 @@ void createNewEmployee(Employee* list,Employee auxEmployee,int len){
 
     getString(auxEmployee.name,"Nombre : ","Error : por favor ingreselo de nuevo\n");
     getString(auxEmployee.lastName,"Apellido : ","Error : por favor ingreselo de nuevo\n");
-    printf("\nSector: ");
-    scanf("%d",&auxEmployee.sector);
-    printf("\nSalario: ");
+   // getFloat(auxEmployee.salary,"Salario : ","Error : por favor ingreselo de nuevo\n");
+    getInt(auxEmployee.sector,"Sector : ","Error : por favor ingreselo de nuevo\n");
+    /*printf("\nSector: ");
+    scanf("%d",&auxEmployee.sector);*/
+    printf("Salario: \n");
     scanf("%f",&auxEmployee.salary);
     auxEmployee.id = contadorId;
     printf("id que va a contener : %d\n",auxEmployee.id);
     contadorId++;
-    r=addEmployee(list,len,auxEmployee.id,auxEmployee.name,auxEmployee.lastName,auxEmployee.sector,auxEmployee.salary);
+    r=addEmployee(list,len,auxEmployee.id,auxEmployee.name,auxEmployee.lastName,auxEmployee.salary,auxEmployee.sector);
     if(r==0){
         printf("carga completada!\n");
     }else{
@@ -131,15 +133,46 @@ int employeeSearchId(Employee list[], int limite, int valorBuscado){
 }
 
 /*void modificarEmpleado(Employee listado[],int id, int tam){
-    idAbuscar=employeeSearchId(listado, tam, id);
+    indice=employeeSearchId(listado, tam, id);
     int opcion;
-    printf("1. Nombre:\n2.Apellido\n3.Salario\n4.Sector");
-    printf("Ingrese la opcion que quiera modificar del empleado: \n");
-    switch(opcion){
-        case 1:
+    do{
 
+        printf("1. Nombre:\n2.Apellido\n3.Salario\n4.Sector\n5.Salir");
+        printf("Ingrese la opcion que quiera modificar del empleado: \n");
+        switch(opcion){
+            case 1:
+                getString(auxEmployee.name,"Nombre : ","Error : por favor ingreselo de nuevo\n");
+                strcpy(listado[i].name,auxExployee.name);
+                break;
+            case 2:
+                getString(auxEmployee.lastName,"Apellido : ","Error : por favor ingreselo de nuevo\n");
+                strcpy(listado[i].name,auxExployee.name);
+                break;
+            case 3:
+
+                listado[i].salary = auxEmployee.salary;
+                break;
+            case 4:
+
+                listado[i].sector = auxEmployee.sector;
+                break;
+    }while(opcion!=5);
     }
 }*/
+
+/*
+void informarPromedio(Employee* list, int len){
+    int acumuladorPromedio=0;
+    int contadorEmpleados=0;
+    int empleadosMayorPromedio=0;
+    for(i=0;i<length;i++){
+        if(list[i].isEmpty==FULL){
+            acumuladorPromedio+=list[i].salary;
+            contador empleados;++
+        }
+    }
+}
+*/
 
 int sortEmployees(Employee* list, int len, int order){
     int i;

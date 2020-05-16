@@ -4,26 +4,45 @@
 
 #include "funcionesParaTiposDeDatos.h"
 
-
-int utn_getNombre(char* pResultado, int longitud,char* mensaje, char* mensajeError, int reintentos)
-{
-	char bufferString[4096];
-	int retorno = -1;
-	while(reintentos>=0)
-	{
-		reintentos--;
-		printf("%s",mensaje);
-		if(getNombre(bufferString,sizeof(bufferString)) == 0 && strnlen(bufferString,sizeof(bufferString)) < longitud )
-		{
-			strncpy(pResultado,bufferString,longitud);
-			retorno = 0;
-			break;
-		}
-		printf("%s",mensajeError);
-	}
-	return retorno;
+int esNumerico(char stringNumber[]){
+    int respuesta=1;
+    int i;
+    for(i=0;stringNumber[i]!='\0';i++){
+        if(stringNumber[i]<'0' || stringNumber[i]>'9'){
+            respuesta=0;
+            break;
+        }
+    }
+    return respuesta;
 }
 
+/*void getFloat(float number, char* message, char* errorMessage){
+    char string[50];
+    printf("%s", message);
+    fflush(stdin);
+    gets(string);
+    number=atof(string);
+    while(esNumerico(number)==1){
+        printf("%s", errorMessage);
+        fflush(stdin);
+        gets(string);
+        number=atof(string);
+    }
+}*/
+
+void getInt(int number, char* message, char* errorMessage){
+    char string[50];
+    printf("%s", message);
+    fflush(stdin);
+    gets(string);
+    number=atoi(string);
+    while(esNumerico(string)==0){
+        printf("%s", errorMessage);
+        fflush(stdin);
+        gets(string);
+        number=atoi(string);
+    }
+}
 
 
 int esString(char arrayString[]){
@@ -37,7 +56,7 @@ int esString(char arrayString[]){
     return respuesta;
 }
 
-void getString(char arrayString[], char message[], char errorMessage[])
+void getString(char* arrayString, char* message, char* errorMessage)
 {
     printf("%s", message);
     fflush(stdin);
