@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1589603623 source:c:\users\montreal\desktop\lab y prog 1\trabajos\tp2\main.c
+1589609493 source:c:\users\montreal\desktop\lab y prog 1\trabajos\tp2\main.c
 	<stdio.h>
 	<stdlib.h>
 	"arrayEmployees.h"
@@ -13,11 +13,12 @@
 1589602925 c:\users\montreal\desktop\lab y prog 1\trabajos\tp2\funcionesparatiposdedatos.h
 	"arrayEmployees.h"
 
-1589603909 c:\users\montreal\desktop\lab y prog 1\trabajos\tp2\arrayemployees.h
+1589609381 c:\users\montreal\desktop\lab y prog 1\trabajos\tp2\arrayemployees.h
 	<string.h>
 	<stdio.h>
+	<stdlib.h>
 
-1589603179 source:c:\users\montreal\desktop\lab y prog 1\trabajos\tp2\arrayemployees.c
+1589611238 source:c:\users\montreal\desktop\lab y prog 1\trabajos\tp2\arrayemployees.c
 	"ArrayEmployees.h"
 	"funcionesParaTiposDeDatos.h"
 

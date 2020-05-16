@@ -2,6 +2,8 @@
 #define ARRAYEMPLOYEES_H_INCLUDED
 #include <string.h>
 #include <stdio.h>
+#include <stdlib.h>
+#define MAX_EMPLOYEES 20
 #define NAME_LEN 51
 #define LASTNAME_LEN 51
 #define UP 1
@@ -18,7 +20,7 @@ typedef struct{
     int isEmpty;
 } Employee;
 
-
+void iniciarMenu(Employee* listadoEmployees);
 /** \brief To indicate that all position in the array are empty,
 * this function put the flag (isEmpty) in TRUE in all
 * position of the array
@@ -101,14 +103,6 @@ int printEmployees(Employee* list, int len);
 free space] - (0) if Ok
 */
 int employeeSearchFirstEmpty(Employee* array,int limite);
-
-/** \brief Imprime por pantalla un solo empleado
-*
-* \param list Employee
-* \return -
-*
-*/
-void printOneEmployee(Employee list);
 
 
 /**\brief Informa por pantalla Total y promedio de los salarios, y cuántos empleados superan el salario promedio
