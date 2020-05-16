@@ -7,6 +7,7 @@
 int isNumeric(char stringNumber[]){
     int respuesta=1;
     int i;
+
     for(i=0;stringNumber[i]!='\0';i++){
         if(stringNumber[i]<'0' || stringNumber[i]>'9'){
             respuesta=0;
@@ -16,13 +17,35 @@ int isNumeric(char stringNumber[]){
     return respuesta;
 }
 
+int isFloat(char stringNumber[]){
+    int i=0;
+	int retorno = 1;
+	int contadorPuntos=0;
+
+	if(stringNumber != NULL && strlen(stringNumber) > 0){
+		for(i=0 ; stringNumber[i] != '\0'; i++){
+			if(stringNumber[i] < '0' || stringNumber[i] > '9' ){
+				if(stringNumber[i] == '.' && contadorPuntos == 0){
+					contadorPuntos++;
+				}else{
+					retorno = 0;
+					break;
+				}
+			}
+		}
+	}
+	return retorno;
+}
+
 void getFloat(float* number, char* message, char* errorMessage){
     char string[50];
+
     printf("%s", message);
     fflush(stdin);
     gets(string);
     *number=atof(string);
-    while(isNumeric(string)==0){
+
+    while(isFloat(string)==0){
         printf("%s", errorMessage);
         fflush(stdin);
         gets(string);

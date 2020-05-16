@@ -196,8 +196,8 @@ void modificarEmpleado(Employee listado[],int id, int tam){
                 strcpy(listado[indice].name,auxEmployee.name);
                 break;
             case 3:
-
-                //listado[i].salary = auxEmployee.salary;
+                getFloat(&auxEmployee.salary,"Salario : ","Error : por favor ingreselo de nuevo\n");
+                listado[indice].salary = auxEmployee.salary;
                 break;
             case 4:
                 getInt(&auxEmployee.sector,"Sector : ","Error : por favor ingreselo de nuevo\n");

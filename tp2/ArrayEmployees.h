@@ -29,5 +29,15 @@ int employeeSearchFirstEmpty(Employee* array,int limite);
 void printOneEmployee(Employee list);
 void informarPromedio(Employee* list, int len);
 void createNewEmployee();
+
+
+/** \brief Modifica el empleado que quiere el usuario ingresando el ID
+*
+* \param listado[] Employee
+* \param id int
+* \param int tam
+* \return -
+*
+*/
 void modificarEmpleado(Employee listado[],int id, int tam);
 #endif // ARRAYEMPLOYEES_H_INCLUDED
