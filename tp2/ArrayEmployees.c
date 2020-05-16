@@ -103,7 +103,6 @@ void createNewEmployee(Employee* list,Employee auxEmployee,int len){
     }else{
         printf("error!\n");
     }
-
 }
 
 int employeeSearchFirstEmpty(Employee* array,int tam){
@@ -256,7 +255,7 @@ int sortEmployees(Employee* list, int len, int order){
 
 void printOneEmployee(Employee list){
     printf(" ID   :    NOMBRE    :     APELLIDO    :     SALARIO    :  SECTOR    \n");
-    printf(" %1d %10s %16s   %15.2f  %10d\n",list.id,list.name,list.lastName,list.salary,list.sector);
+    printf(" %1d %12s %14s   %16.2f  %10d\n",list.id,list.name,list.lastName,list.salary,list.sector);
     printf("\n");
 }
 
