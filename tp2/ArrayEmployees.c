@@ -179,8 +179,9 @@ int employeeSearchId(Employee list[], int limite, int valorBuscado){
 * \return -
 *
 */
-/*void modificarEmpleado(Employee listado[],int id, int tam){
-    indice=employeeSearchId(listado, tam, id);
+void modificarEmpleado(Employee listado[],int id, int tam){
+    Employee auxEmployee;
+    int indice=employeeSearchId(listado, tam, id);
     int opcion;
     do{
 
@@ -189,23 +190,23 @@ int employeeSearchId(Employee list[], int limite, int valorBuscado){
         switch(opcion){
             case 1:
                 getString(auxEmployee.name,"Nombre : ","Error : por favor ingreselo de nuevo\n");
-                strcpy(listado[i].name,auxExployee.name);
+                strcpy(listado[indice].name,auxEmployee.name);
                 break;
             case 2:
                 getString(auxEmployee.lastName,"Apellido : ","Error : por favor ingreselo de nuevo\n");
-                strcpy(listado[i].name,auxExployee.name);
+                strcpy(listado[indice].name,auxEmployee.name);
                 break;
             case 3:
 
-                listado[i].salary = auxEmployee.salary;
+                //listado[i].salary = auxEmployee.salary;
                 break;
             case 4:
-
-                listado[i].sector = auxEmployee.sector;
+                getInt(&auxEmployee.sector,"Sector : ","Error : por favor ingreselo de nuevo\n");
+                listado[indice].sector = auxEmployee.sector;
                 break;
+        }
     }while(opcion!=5);
-    }
-}*/
+}
 
 
 void informarPromedio(Employee* list, int len){

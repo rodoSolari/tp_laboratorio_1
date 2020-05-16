@@ -9,6 +9,7 @@ int main()
     int employeeCargado = 0;
     int opcion;
     int idEliminar;
+    int idModificar;
     int orden;
     if(initEmployees(listadoEmployees,MAX_EMPLOYEES)==0){
         printf("__listado inicializado__\n");
@@ -35,7 +36,9 @@ int main()
                 break;
             case 2:
                 if(employeeCargado>=1){
-                    //modificarEmpleado(listadoEmployees,MAX_EMPLOYEES);
+                    printf("Ingrese el id del empleado a modificar: ");
+                    scanf("%d",&idModificar);
+                    modificarEmpleado(listadoEmployees,idModificar,MAX_EMPLOYEES);
                 }else{
                     printf("No hay empleados cargados en la lista, por favor ingrese primero la opcion 1");
                 }
