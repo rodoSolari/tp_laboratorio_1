@@ -86,6 +86,8 @@ indicate UP or DOWN order
 */
 int sortEmployees(Employee* list, int len, int order);
 
+void printOneEmployee(Employee list);
+
 /** \brief Imprime todos los empleados de la lista recibida
 *
 * \param list Employee*

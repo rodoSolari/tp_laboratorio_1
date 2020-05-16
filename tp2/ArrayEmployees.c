@@ -16,12 +16,13 @@ int initEmployees(Employee* list, int len){
 }
 
 void imprimirMenu(){
-    printf("1.Cargar un empleados\n");
-    printf("2.Modificar un empleados\n");
-    printf("3.Eliminar un empleados\n");
-    printf("4.Listar empleados\n");
-    printf("5.Ordenar empleados\n");
-    printf("6.SALIR\n");
+    printf(" __________________________\n");
+    printf("|1.Cargar un empleados     |\n");
+    printf("|2.Modificar un empleados  |\n");
+    printf("|3.Eliminar un empleados   |\n");
+    printf("|4.Ordenar empleados       |\n");
+    printf("|5.SALIR                   |\n");
+    printf("|__________________________|\n");
     printf("ELIJA UNA OPCION: ");
 }
 
@@ -66,13 +67,6 @@ void iniciarMenu(Employee* listadoEmployees){
                 break;
             case 4:
                 if(employeeCargado>=1){
-                    printEmployees(listadoEmployees,employeeCargado);
-                }else{
-                    printf("No hay empleados cargados en la lista, por favor ingrese primero la opcion 1");
-                }
-                break;
-            case 5:
-                if(employeeCargado>=1){
                     printf("ingrese el orden\n    1:ascendente    0:descendente\n");
                     scanf("%d",&orden);
                     if(sortEmployees(listadoEmployees,MAX_EMPLOYEES,orden)==0){
@@ -85,18 +79,23 @@ void iniciarMenu(Employee* listadoEmployees){
                 }
                 break;
             default:
-                printf("opcion incorrecta\n");
+                if(opcion!=5){
+                    printf("opcion incorrecta\n");
+                }else{
+                    printf("saliendo del programa...\n");
+                }
+                break;
             }
         system("pause");
         system("cls");
-    }while(opcion!=6);
+    }while(opcion!=5);
 }
 
 void createNewEmployee(Employee* list,Employee auxEmployee,int len){
-    getString(auxEmployee.name,"Nombre : ","Error : por favor ingreselo de nuevo\n");
-    getString(auxEmployee.lastName,"Apellido : ","Error : por favor ingreselo de nuevo\n");
-    getFloat(&auxEmployee.salary,"Salario : ","Error : por favor ingreselo de nuevo\n");
-    getInt(&auxEmployee.sector,"Sector : ","Error : por favor ingreselo de nuevo\n");
+    getString(auxEmployee.name,"Ingrese el nombre : ","Error : por favor ingreselo de nuevo\n");
+    getString(auxEmployee.lastName,"Ingrese el Apellido : ","Error : por favor ingreselo de nuevo\n");
+    getFloat(&auxEmployee.salary,"Ingrese el salario : ","Error : por favor ingreselo de nuevo\n");
+    getInt(&auxEmployee.sector,"Ingrese el sector : ","Error : por favor ingreselo de nuevo\n");
     auxEmployee.id = employeeSearchFirstEmpty(list,len)+contadorId;
     if(addEmployee(list,len,auxEmployee.id,auxEmployee.name,auxEmployee.lastName,auxEmployee.salary,auxEmployee.sector)==0){
         printf("carga completada!\n");
@@ -181,7 +180,7 @@ void modificarEmpleado(Employee listado[],int id, int tam){
                 break;
             case 2:
                 getString(auxEmployee.lastName,"Apellido : ","Error : por favor ingreselo de nuevo\n");
-                strcpy(listado[indice].name,auxEmployee.name);
+                strcpy(listado[indice].lastName,auxEmployee.lastName);
                 break;
             case 3:
                 getFloat(&auxEmployee.salary,"Salario : ","Error : por favor ingreselo de nuevo\n");
@@ -194,6 +193,7 @@ void modificarEmpleado(Employee listado[],int id, int tam){
         }
     }while(opcion!=5);
     printf("Modificado con exito!\n");
+    printEmployees(listado,MAX_EMPLOYEES);
 }
 
 void informarPromedio(Employee* list, int len){
@@ -253,6 +253,12 @@ int sortEmployees(Employee* list, int len, int order){
     return respuesta;
 }
 
+void printOneEmployee(Employee list){
+    printf(" ID   :    NOMBRE    :     APELLIDO    :     SALARIO    :  SECTOR    \n");
+    printf(" %1d %10s %16s   %15.2f  %11d\n",list.id,list.name,list.lastName,list.salary,list.sector);
+    printf("\n");
+}
+
 int printEmployees(Employee* list, int len){
     int i;
     int respuesta = -1;
@@ -260,9 +266,7 @@ int printEmployees(Employee* list, int len){
         respuesta=0;
         for(i=0;i<len;i++){
             if(list[i].isEmpty==FULL){
-                printf(" ID   :    NOMBRE    :     APELLIDO    :     SALARIO    :  SECTOR    \n");
-                printf(" %1d %15s %16s   %15.2f  %10d\n",list[i].id,list[i].name,list[i].lastName,list[i].salary,list[i].sector);
-                printf("\n");
+                printOneEmployee(list[i]);
             }
         }
     }

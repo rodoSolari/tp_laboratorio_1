@@ -13,12 +13,12 @@
 1589602925 c:\users\montreal\desktop\lab y prog 1\trabajos\tp2\funcionesparatiposdedatos.h
 	"arrayEmployees.h"
 
-1589609381 c:\users\montreal\desktop\lab y prog 1\trabajos\tp2\arrayemployees.h
+1589652159 c:\users\montreal\desktop\lab y prog 1\trabajos\tp2\arrayemployees.h
 	<string.h>
 	<stdio.h>
 	<stdlib.h>
 
-1589612109 source:c:\users\montreal\desktop\lab y prog 1\trabajos\tp2\arrayemployees.c
+1589653241 source:c:\users\montreal\desktop\lab y prog 1\trabajos\tp2\arrayemployees.c
 	"ArrayEmployees.h"
 	"funcionesParaTiposDeDatos.h"
 
