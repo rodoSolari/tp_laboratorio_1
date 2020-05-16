@@ -1,7 +1,7 @@
 #include "ArrayEmployees.h"
 #include "funcionesParaTiposDeDatos.h"
 
-static int contadorId = 0;
+static int contadorId = 1000;
 
 int initEmployees(Employee* list, int len){
     int respuesta = -1;
@@ -93,15 +93,12 @@ void iniciarMenu(Employee* listadoEmployees){
 }
 
 void createNewEmployee(Employee* list,Employee auxEmployee,int len){
-    int r;
     getString(auxEmployee.name,"Nombre : ","Error : por favor ingreselo de nuevo\n");
     getString(auxEmployee.lastName,"Apellido : ","Error : por favor ingreselo de nuevo\n");
     getFloat(&auxEmployee.salary,"Salario : ","Error : por favor ingreselo de nuevo\n");
     getInt(&auxEmployee.sector,"Sector : ","Error : por favor ingreselo de nuevo\n");
-    auxEmployee.id = contadorId;
-    r=addEmployee(list,len,auxEmployee.id,auxEmployee.name,auxEmployee.lastName,auxEmployee.salary,auxEmployee.sector);
-    if(r==0){
-        contadorId++;
+    auxEmployee.id = employeeSearchFirstEmpty(list,len)+contadorId;
+    if(addEmployee(list,len,auxEmployee.id,auxEmployee.name,auxEmployee.lastName,auxEmployee.salary,auxEmployee.sector)==0){
         printf("carga completada!\n");
     }else{
         printf("error!\n");
@@ -136,7 +133,6 @@ int addEmployee(Employee* list, int len, int id, char name[],char lastName[],flo
         list[indice].sector = sector;
         list[indice].isEmpty = FULL;
         respuesta = 0;
-        indice++;
     }
 	return respuesta;
 }
