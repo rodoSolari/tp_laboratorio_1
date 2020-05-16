@@ -1,14 +1,6 @@
 #include "ArrayEmployees.h"
 #include "funcionesParaTiposDeDatos.h"
 
-/** \brief To indicate that all position in the array are empty,
-* this function put the flag (isEmpty) in TRUE in all
-* position of the array
-* \param list Employee* Pointer to array of employees
-* \param len int Array length
-* \return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
-*
-*/
 static int contadorId = 0;
 
 int initEmployees(Employee* list, int len){
@@ -23,19 +15,16 @@ int initEmployees(Employee* list, int len){
 	return respuesta;
 }
 
+void imprimirMenu(){
+    printf("1.Cargar un empleados\n");
+    printf("2.Modificar un empleados\n");
+    printf("3.Eliminar un empleados\n");
+    printf("4.Listar empleados\n");
+    printf("5.Ordenar empleados\n");
+    printf("6.SALIR\n");
+    printf("ELIJA UNA OPCION: ");
+}
 
-/** \brief add in a existing list of employees the values received as parameters
-* in the first empty position
-* \param list employee*
-* \param len int
-* \param id int
-* \param name[] char
-* \param lastName[] char
-* \param salary float
-* \param sector int
-* \return int Return (-1) if Error [Invalid length or NULL pointer or without
-free space] - (0) if Ok
-*/
 void createNewEmployee(Employee* list,Employee auxEmployee,int len){
     int r;
 
@@ -56,13 +45,7 @@ void createNewEmployee(Employee* list,Employee auxEmployee,int len){
 }
 
 
-/** \brief
-*
-* \param array employee*
-* \param tam int
-* \return int Return (-1) if Error [Invalid length or NULL pointer or without
-free space] - (0) if Ok
-*/
+
 int employeeSearchFirstEmpty(Employee* array,int tam){
 	int respuesta = -1;
 	int i;
@@ -77,18 +60,7 @@ int employeeSearchFirstEmpty(Employee* array,int tam){
 	return respuesta;
 }
 
-/** \brief add in a existing list of employees the values received as parameters
-* in the first empty position
-* \param list employee*
-* \param len int
-* \param id int
-* \param name[] char
-* \param lastName[] char
-* \param salary float
-* \param sector int
-* \return int Return (-1) if Error [Invalid length or NULL pointer or without
-free space] - (0) if Ok
-*/
+
 int addEmployee(Employee* list, int len, int id, char name[],char lastName[],float salary,int sector){
     int respuesta = -1;
     int indice = employeeSearchFirstEmpty(list,len);
@@ -107,15 +79,6 @@ int addEmployee(Employee* list, int len, int id, char name[],char lastName[],flo
 }
 
 
-/** \brief find an Employee by Id en returns the index position in array.
-*
-* \param list Employee*
-* \param len int
-* \param id int
-* \return Return employee index position or (-1) if [Invalid length or NULL
-pointer received or employee not found]
-*
-*/
 
 int findEmployeeById(Employee* list, int len,int id){
     int respuesta = -2;
@@ -133,15 +96,6 @@ int findEmployeeById(Employee* list, int len,int id){
 }
 
 
-/** \brief Remove a Employee by Id (put isEmpty Flag in 1)
-*
-* \param list Employee*
-* \param len int
-* \param id int
-* \return int Return (-1) if Error [Invalid length or NULL pointer or if can't
-find a employee] - (0) if Ok
-*
-*/
 int removeEmployee(Employee* list, int len, int id){
     int respuesta = -1;
     int posicionId = findEmployeeById(list,len,id);
@@ -182,7 +136,6 @@ void modificarEmpleado(Employee listado[],int id, int tam){
     int indice=employeeSearchId(listado, tam, id);
     int opcion;
     do{
-
         printf("1. Nombre:\n2.Apellido\n3.Salario\n4.Sector\n5.Salir\n");
         printf("Ingrese la opcion que quiera modificar del empleado: \n");
         scanf("%d",&opcion);
@@ -207,7 +160,6 @@ void modificarEmpleado(Employee listado[],int id, int tam){
     }while(opcion!=5);
     printf("Modificado con exito!\n");
 }
-
 
 void informarPromedio(Employee* list, int len){
     int totalSalario=0;
@@ -236,19 +188,8 @@ void informarPromedio(Employee* list, int len){
 }
 
 
-
-/** \brief Sort the elements in the array of employees, the argument order
-indicate UP or DOWN order
-*
-* \param list Employee*
-* \param len int
-* \param order int [1] indicate UP - [0] indicate DOWN
-* \return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
-*
-*/
 int sortEmployees(Employee* list, int len, int order){
-    int i;
-    int j;
+    int i,j;
     Employee auxEmployee;
 
     for(i=0; i<len-1; i++){
@@ -274,12 +215,6 @@ int sortEmployees(Employee* list, int len, int order){
 }
 
 
-/** \brief Imprime por pantalla un solo empleado
-*
-* \param list Employee
-* \return -
-*
-*/
 void printOneEmployee(Employee list){
     printf(" ID   :    NOMBRE    :     APELLIDO    :     SALARIO    :  SECTOR    \n");
     printf(" %1d %15s %16s   %15.2f  %10d\n",list.id,list.name,list.lastName,list.salary,list.sector);
@@ -287,16 +222,9 @@ void printOneEmployee(Employee list){
 }
 
 
-/** \brief Imprime todos los empleados de la lista recibida
-*
-* \param list Employee*
-* \param lenght int
-* \return -
-*
-*/
-int printEmployees(Employee* list, int length){
+int printEmployees(Employee* list, int len){
     int i=0;
-    for(i=0;i<length;i++){
+    for(i=0;i<len;i++){
         if(list[i].isEmpty==FULL){
             printOneEmployee(list[i]);
         }

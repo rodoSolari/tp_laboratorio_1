@@ -38,7 +38,7 @@ int isFloat(char stringNumber[]){
 }
 
 void getFloat(float* number, char* message, char* errorMessage){
-    char string[50];
+    char string[MAX_STRING];
 
     printf("%s", message);
     fflush(stdin);
@@ -54,7 +54,7 @@ void getFloat(float* number, char* message, char* errorMessage){
 }
 
 void getInt(int* number, char* message, char* errorMessage){
-    char string[50];
+    char string[MAX_STRING];
     printf("%s", message);
     fflush(stdin);
     gets(string);
