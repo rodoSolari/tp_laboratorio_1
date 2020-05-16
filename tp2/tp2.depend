@@ -22,3 +22,26 @@
 	"ArrayEmployees.h"
 	"funcionesParaTiposDeDatos.h"
 
+1589654340 source:c:\users\montreal\desktop\tp_laboratorio_1-master\tp2\arrayemployees.c
+	"ArrayEmployees.h"
+	"funcionesParaTiposDeDatos.h"
+
+1589653763 c:\users\montreal\desktop\tp_laboratorio_1-master\tp2\arrayemployees.h
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+
+1589653763 c:\users\montreal\desktop\tp_laboratorio_1-master\tp2\funcionesparatiposdedatos.h
+	"arrayEmployees.h"
+
+1589653763 source:c:\users\montreal\desktop\tp_laboratorio_1-master\tp2\funcionesparatiposdedatos.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"funcionesParaTiposDeDatos.h"
+
+1589653763 source:c:\users\montreal\desktop\tp_laboratorio_1-master\tp2\main.c
+	<stdio.h>
+	<stdlib.h>
+	"arrayEmployees.h"
+

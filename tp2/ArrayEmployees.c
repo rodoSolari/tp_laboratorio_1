@@ -99,6 +99,7 @@ void createNewEmployee(Employee* list,Employee auxEmployee,int len){
     auxEmployee.id = employeeSearchFirstEmpty(list,len)+contadorId;
     if(addEmployee(list,len,auxEmployee.id,auxEmployee.name,auxEmployee.lastName,auxEmployee.salary,auxEmployee.sector)==0){
         printf("carga completada!\n");
+        printEmployees(list,len);
     }else{
         printf("error!\n");
     }
@@ -255,7 +256,7 @@ int sortEmployees(Employee* list, int len, int order){
 
 void printOneEmployee(Employee list){
     printf(" ID   :    NOMBRE    :     APELLIDO    :     SALARIO    :  SECTOR    \n");
-    printf(" %1d %10s %16s   %15.2f  %11d\n",list.id,list.name,list.lastName,list.salary,list.sector);
+    printf(" %1d %10s %16s   %15.2f  %10d\n",list.id,list.name,list.lastName,list.salary,list.sector);
     printf("\n");
 }
 
