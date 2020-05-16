@@ -4,7 +4,7 @@
 
 #include "funcionesParaTiposDeDatos.h"
 
-int esNumerico(char stringNumber[]){
+int isNumeric(char stringNumber[]){
     int respuesta=1;
     int i;
     for(i=0;stringNumber[i]!='\0';i++){
@@ -16,19 +16,19 @@ int esNumerico(char stringNumber[]){
     return respuesta;
 }
 
-/*void getFloat(float number, char* message, char* errorMessage){
+void getFloat(float* number, char* message, char* errorMessage){
     char string[50];
     printf("%s", message);
     fflush(stdin);
     gets(string);
-    number=atof(string);
-    while(esNumerico(number)==1){
+    *number=atof(string);
+    while(isNumeric(string)==0){
         printf("%s", errorMessage);
         fflush(stdin);
         gets(string);
-        number=atof(string);
+        *number=atof(string);
     }
-}*/
+}
 
 void getInt(int* number, char* message, char* errorMessage){
     char string[50];
@@ -36,7 +36,7 @@ void getInt(int* number, char* message, char* errorMessage){
     fflush(stdin);
     gets(string);
     *number=atoi(string);
-    while(esNumerico(string)==0){
+    while(isNumeric(string)==0){
         printf("%s", errorMessage);
         fflush(stdin);
         gets(string);

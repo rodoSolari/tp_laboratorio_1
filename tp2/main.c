@@ -17,7 +17,6 @@ int main()
         printf("Error al inicializar el listado\n");
     }
     Employee newEmployee;
-
     do
     {
         printf("1.Cargar un empleados\n");
@@ -63,13 +62,14 @@ int main()
                 }
                 break;
             case 5:
-                printf("ingrese el orden\n    1:ascendente    0:descendente");
+                printf("ingrese el orden\n    1:ascendente    0:descendente\n");
                 scanf("%d",&orden);
                 sortEmployees(listadoEmployees,MAX_EMPLOYEES,orden);
                 informarPromedio(listadoEmployees,MAX_EMPLOYEES);
                 break;
         }
-
+    system("pause");
+    system("cls");
     }while(opcion!=6);
     return 0;
 }

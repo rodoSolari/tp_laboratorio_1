@@ -41,10 +41,8 @@ void createNewEmployee(Employee* list,Employee auxEmployee,int len){
 
     getString(auxEmployee.name,"Nombre : ","Error : por favor ingreselo de nuevo\n");
     getString(auxEmployee.lastName,"Apellido : ","Error : por favor ingreselo de nuevo\n");
-   // getFloat(auxEmployee.salary,"Salario : ","Error : por favor ingreselo de nuevo\n");
+    getFloat(&auxEmployee.salary,"Salario : ","Error : por favor ingreselo de nuevo\n");
     getInt(&auxEmployee.sector,"Sector : ","Error : por favor ingreselo de nuevo\n");
-    printf("Salario: \n");
-    scanf("%f",&auxEmployee.salary);
     auxEmployee.id = contadorId;
     printf("id que va a contener : %d\n",auxEmployee.id);
     contadorId++;
@@ -120,10 +118,10 @@ pointer received or employee not found]
 */
 
 int findEmployeeById(Employee* list, int len,int id){
-    int respuesta = -1;
+    int respuesta = -2;
 	int i;
 	if(list != NULL && len > 0 && id >= 0){
-		respuesta = 0;
+		respuesta = -1;
 		for(i=0;i<len;i++){
 			if(list[i].id == id){
 				respuesta = i;
@@ -185,8 +183,9 @@ void modificarEmpleado(Employee listado[],int id, int tam){
     int opcion;
     do{
 
-        printf("1. Nombre:\n2.Apellido\n3.Salario\n4.Sector\n5.Salir");
+        printf("1. Nombre:\n2.Apellido\n3.Salario\n4.Sector\n5.Salir\n");
         printf("Ingrese la opcion que quiera modificar del empleado: \n");
+        scanf("%d",&opcion);
         switch(opcion){
             case 1:
                 getString(auxEmployee.name,"Nombre : ","Error : por favor ingreselo de nuevo\n");
@@ -206,6 +205,7 @@ void modificarEmpleado(Employee listado[],int id, int tam){
                 break;
         }
     }while(opcion!=5);
+    printf("Modificado con exito!\n");
 }
 
 
@@ -281,10 +281,8 @@ int sortEmployees(Employee* list, int len, int order){
 *
 */
 void printOneEmployee(Employee list){
-    printf("id: %d\t nombre: %s\t Apellido: %s\t Salario: %.2f \t Sector: %d\n",list.id,list.name,
-           list.lastName,
-           list.salary,
-           list.sector);
+    printf(" ID   :    NOMBRE    :     APELLIDO    :     SALARIO    :  SECTOR    \n");
+    printf(" %1d %15s %16s   %15.2f  %10d\n",list.id,list.name,list.lastName,list.salary,list.sector);
     printf("\n");
 }
 
