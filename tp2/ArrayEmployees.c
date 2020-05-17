@@ -18,8 +18,8 @@ int initEmployees(Employee* list, int len){
 void imprimirMenu(){
     printf(" __________________________\n");
     printf("|1.Cargar un empleados     |\n");
-    printf("|2.Modificar un empleados  |\n");
-    printf("|3.Eliminar un empleados   |\n");
+    printf("|2.Modificar un empleado   |\n");
+    printf("|3.Eliminar un empleado    |\n");
     printf("|4.Ordenar empleados       |\n");
     printf("|5.SALIR                   |\n");
     printf("|__________________________|\n");
@@ -60,6 +60,8 @@ void iniciarMenu(Employee* listadoEmployees){
                     if(removeEmployee(listadoEmployees,MAX_EMPLOYEES,idEliminar)==0){
                         printf("Eliminado con exito!\n");
                         employeeCargado--;
+                    }else{
+                        printf("Error, debe ingresar un ID valido que exista\n");
                     }
                 }else{
                     printf("No hay empleados cargados en la lista, por favor ingrese primero la opcion 1");
@@ -168,32 +170,36 @@ int removeEmployee(Employee* list, int len, int id){
 void modificarEmpleado(Employee listado[],int id, int tam){
     Employee auxEmployee;
     int indice=findEmployeeById(listado, tam, id);
-    int opcion;
-    do{
-        printf("1. Nombre:\n2.Apellido\n3.Salario\n4.Sector\n5.Salir\n");
-        printf("Ingrese la opcion que quiera modificar del empleado: \n");
-        scanf("%d",&opcion);
-        switch(opcion){
-            case 1:
-                getString(auxEmployee.name,"Nombre : ","Error : por favor ingreselo de nuevo\n");
-                strcpy(listado[indice].name,auxEmployee.name);
-                break;
-            case 2:
-                getString(auxEmployee.lastName,"Apellido : ","Error : por favor ingreselo de nuevo\n");
-                strcpy(listado[indice].lastName,auxEmployee.lastName);
-                break;
-            case 3:
-                getFloat(&auxEmployee.salary,"Salario : ","Error : por favor ingreselo de nuevo\n");
-                listado[indice].salary = auxEmployee.salary;
-                break;
-            case 4:
-                getInt(&auxEmployee.sector,"Sector : ","Error : por favor ingreselo de nuevo\n");
-                listado[indice].sector = auxEmployee.sector;
-                break;
-        }
-    }while(opcion!=5);
-    printf("Modificado con exito!\n");
-    printEmployees(listado,MAX_EMPLOYEES);
+    if(indice!=-1){
+        int opcion;
+        do{
+            printf("1. Nombre:\n2.Apellido\n3.Salario\n4.Sector\n5.Salir\n");
+            printf("Ingrese la opcion que quiera modificar del empleado: \n");
+            scanf("%d",&opcion);
+            switch(opcion){
+                case 1:
+                    getString(auxEmployee.name,"Nombre : ","Error : por favor ingreselo de nuevo\n");
+                    strcpy(listado[indice].name,auxEmployee.name);
+                    break;
+                case 2:
+                    getString(auxEmployee.lastName,"Apellido : ","Error : por favor ingreselo de nuevo\n");
+                    strcpy(listado[indice].lastName,auxEmployee.lastName);
+                    break;
+                case 3:
+                    getFloat(&auxEmployee.salary,"Salario : ","Error : por favor ingreselo de nuevo\n");
+                    listado[indice].salary = auxEmployee.salary;
+                    break;
+                case 4:
+                    getInt(&auxEmployee.sector,"Sector : ","Error : por favor ingreselo de nuevo\n");
+                    listado[indice].sector = auxEmployee.sector;
+                    break;
+            }
+        }while(opcion!=5);
+        printf("Modificado con exito!\n");
+        printEmployees(listado,MAX_EMPLOYEES);
+    }else{
+        printf("Error : debe ingresar un ID valido\n");
+    }
 }
 
 void informarPromedio(Employee* list, int len){

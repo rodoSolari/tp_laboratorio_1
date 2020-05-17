@@ -86,6 +86,12 @@ indicate UP or DOWN order
 */
 int sortEmployees(Employee* list, int len, int order);
 
+
+/** \brief Imprime un empleado de la lista
+*
+* \param list Employee*
+* \return -
+*/
 void printOneEmployee(Employee list);
 
 /** \brief Imprime todos los empleados de la lista recibida
