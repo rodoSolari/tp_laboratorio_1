@@ -1,5 +1,6 @@
 #ifndef employee_H_INCLUDED
 #define employee_H_INCLUDED
+#include "ValidarDatos.h"
 typedef struct
 {
     int id;
@@ -10,7 +11,7 @@ typedef struct
 
 Employee* employee_new();
 Employee* employee_newParametros(char* idStr,char* nombreStr,char* horasTrabajadasStr,char* sueldoStr);
-void employee_delete();
+void employee_delete(Employee* this);
 
 int employee_setId(Employee* this,int id);
 int employee_getId(Employee* this,int* id);

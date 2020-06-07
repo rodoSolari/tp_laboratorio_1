@@ -217,18 +217,24 @@
 	"Employee.h"
 	"parser.h"
 
-1591485675 c:\users\montreal\desktop\tp\tp3\linkedlist.h
+1591559795 c:\users\montreal\desktop\tp\tp3\linkedlist.h
 
-1591485738 c:\users\montreal\desktop\tp\tp3\employee.h
+1591564514 c:\users\montreal\desktop\tp\tp3\employee.h
+	"ValidarDatos.h"
 
-1561499216 c:\users\montreal\desktop\tp\tp3\parser.h
-
-1591485713 source:c:\users\montreal\desktop\tp\tp3\employee.c
-	<stdlib.h>
-	"Employee.h"
+1591559666 c:\users\montreal\desktop\tp\tp3\parser.h
 	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
 
-1591485914 source:c:\users\montreal\desktop\tp\tp3\main.c
+1591564526 source:c:\users\montreal\desktop\tp\tp3\employee.c
+	<stdlib.h>
+	<string.h>
+	"Employee.h"
+
+1591558137 source:c:\users\montreal\desktop\tp\tp3\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -238,9 +244,10 @@
 
 1561499216 c:\users\montreal\desktop\tp\tp3\controller.h
 
-1590720144 source:c:\users\montreal\desktop\tp\tp3\parser.c
-	<stdio.h>
+1591559864 source:c:\users\montreal\desktop\tp\tp3\parser.c
+	"parser.h"
+
+1591564548 c:\users\montreal\desktop\tp\tp3\validardatos.h
 	<stdlib.h>
-	"LinkedList.h"
-	"Employee.h"
+	<string.h>
 

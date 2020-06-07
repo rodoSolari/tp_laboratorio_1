@@ -36,16 +36,20 @@ int main()
         printf("9. Guardar los datos de los empleados en el archivo data.csv (modo binario).\n");
         printf("10. Salir\n");
         scanf("%d",&opcion);
+
         switch(opcion)
         {
             case 1:
                 controller_loadFromText("data.csv",listaEmpleados);
                 break;
             case 2:
+                controller_loadFromBinary("data.bin",listaEmpleados);
                 break;
             case 3:
+                //controller_addEmployee(listaEmpleados);
                 break;
             case 4:
+
                 break;
             case 5:
                 break;

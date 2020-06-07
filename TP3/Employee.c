@@ -1,6 +1,7 @@
 #include <stdlib.h>
-#include "Employee.h"
 #include <string.h>
+#include "Employee.h"
+
 
 Employee* employee_new()
 {
@@ -14,45 +15,65 @@ Employee* employee_newParametros(char* idStr,char* nombreStr,char* horasTrabajad
 
         return this;
     }
-    //employee_delete(this)
-    free(this);
+    employee_delete(this);
     return NULL;
 }
 
-void employee_delete(){
-    //free();
+void employee_delete(Employee* this){
+    free(this);
 }
 
 int employee_setNombre(Employee* this,char* nombre)
 {
-    return 1;
+    int retorno = 1;
+	if(this != NULL && nombre != NULL)
+	{
+		if(isValidNombre(nombre,100))
+		{
+			retorno = 0;
+			strncpy(this->nombre,nombre,100);
+		}
+	}
+	return retorno;
 }
 
 int employee_getNombre(Employee* this,char* nombre)
 {
-    int retorno = -1;
-    if(this != NULL && nombre != NULL){
-        retorno = 0;
-        //strcpy()
-    }
-    return retorno;
+    int retorno = 1;
+	if(this != NULL && nombre != NULL)
+	{
+		retorno = 0;
+		strncpy(nombre,this->nombre,100);
+	}
+	return retorno;
 }
 
 
 
 int employee_setSueldo(Employee* this,int sueldo)
 {
-    return 1;
+    int retorno = 1;
+	if(this != NULL && sueldo >= 0)
+	{
+		retorno = 0;
+		this->sueldo = sueldo;
+	}
+	return retorno;
 }
 int employee_getSueldo(Employee* this,int* sueldo)
 {
-    return 1;
-
+    int retorno = 1;
+	if(this != NULL && sueldo != NULL)
+	{
+		retorno = 0;
+		*sueldo = this->sueldo;
+	}
+	return retorno;
 }
 
 int employee_setId(Employee* this,int id)
 {
-    int retorno = -1;
+    int retorno = 1;
     static int maximoId = -1;
     if(this!=NULL){
         retorno = 0;
@@ -70,7 +91,13 @@ int employee_setId(Employee* this,int id)
 }
 int employee_getId(Employee* this,int* id)
 {
-    return 1;
+    int retorno = 1;
+	if(this != NULL && id != NULL)
+	{
+		retorno = 0;
+		*id = this->id;
+	}
+	return retorno;
 }
 
 int employee_setHorasTrabajadas(Employee* this,int horasTrabajadas)
@@ -82,10 +109,15 @@ int employee_setHorasTrabajadas(Employee* this,int horasTrabajadas)
     }
     return retorno;
 }
-int employee_getHorasTrabajadas(Employee* this,int* horasTrabajdas)
+int employee_getHorasTrabajadas(Employee* this,int* horasTrabajadas)
 {
-
-    return 1;
+    int retorno = 1;
+	if(this != NULL && horasTrabajadas != NULL)
+	{
+		retorno = 0;
+		*horasTrabajadas = this->horasTrabajadas;
+	}
+	return retorno;
 }
 
 
@@ -115,6 +147,4 @@ int employee_CompareById(Employee* e1, Employee* e2)
     }
     return strcmp(e1->nombre, e2->nombre);
 }
-
-
 

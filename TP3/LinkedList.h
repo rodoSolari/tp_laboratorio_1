@@ -29,7 +29,7 @@ struct LinkedList
     Node* pFirstNode;
     int size;
 }typedef LinkedList;
-#endif
+
 
 //Publicas
 LinkedList* ll_newLinkedList(void);
@@ -59,4 +59,4 @@ int ll_containsAll(LinkedList* this,LinkedList* this2);
 LinkedList* ll_subList(LinkedList* this,int from,int to);
 LinkedList* ll_clone(LinkedList* this);
 
-
+#endif
