@@ -3,7 +3,9 @@
 int parser_EmployeeFromText(FILE* pFile, LinkedList* pArrayListEmployee)
 {
     int r,i=0;
-    char var1[50],var3[50],var2[50],var4[50];
+    int tamLinkedList = ll_len(pArrayListEmployee);
+    char var1[50],var2[50],var3[50],var4[50];
+    Employee* auxEmployee;
     pFile = fopen("data.csv","r");
     if(pFile == NULL)
     {
@@ -13,22 +15,51 @@ int parser_EmployeeFromText(FILE* pFile, LinkedList* pArrayListEmployee)
         r = fscanf(pFile,"%[^,],%[^,],%[^,],%[^\n]\n",var1,var2,var3,var4);
         if(r==4)
         {
-            /*pArrayListEmployee[i].id = atoi(var1);
-            strncpy(arrayEmployees[i].nombre,var2,sizeof(arrayEmployees[i].nombre));
-            strncpy(arrayEmployees[i].horasTrabajadas,var3,sizeof(arrayEmployees[i].horasTrabajadas));
-            arrayEmployees[i].sueldo = atof(sueldo);*/
-            i++;
+            auxEmployee = employee_new();
+            if(auxEmployee!=NULL){
+                auxEmployee->id=atoi(var1);
+                strncpy(auxEmployee->nombre,var2,50);
+                auxEmployee->horasTrabajadas=atoi(var3);
+                auxEmployee->sueldo=atoi(var4);
+                ll_add(pArrayListEmployee,auxEmployee);
+                i++;
+            }
         }
         else{
             break;
         }
-    }while(!feof(pFile));
+    }while(!feof(pFile) && i<tamLinkedList);
     fclose(pFile);
     return i;
 }
 
 int parser_EmployeeFromBinary(FILE* pFile, LinkedList* pArrayListEmployee)
 {
+    int i=0;
+    int tamLinkedList = ll_len(pArrayListEmployee);
+    char var1[50],var2[50],var3[50],var4[50];
+    Employee* auxEmployee;
+    pFile = fopen("data.csv","rb");
 
-    return 1;
+    if(pFile == NULL)
+    {
+        return -1;
+    }
+    do{
+        auxEmployee = employee_new();
+        if(auxEmployee!=NULL){
+            fread(auxEmployee,sizeof(auxEmployee),1,pFile);
+            auxEmployee->id=atoi(var1);
+            strncpy(auxEmployee->nombre,var2,50);
+            auxEmployee->horasTrabajadas=atoi(var3);
+            auxEmployee->sueldo=atoi(var4);
+            ll_add(pArrayListEmployee,auxEmployee);
+            i++;
+        }
+        else{
+            break;
+        }
+    }while(!feof(pFile) && i<tamLinkedList);
+    fclose(pFile);
+    return i;
 }

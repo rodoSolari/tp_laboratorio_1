@@ -209,7 +209,7 @@
 	"LinkedList.h"
 	"Employee.h"
 
-1591485588 source:c:\users\montreal\desktop\tp\tp3\controller.c
+1591575542 source:c:\users\montreal\desktop\tp\tp3\controller.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -250,4 +250,7 @@
 1591564548 c:\users\montreal\desktop\tp\tp3\validardatos.h
 	<stdlib.h>
 	<string.h>
+
+1591564484 source:c:\users\montreal\desktop\tp\tp3\validardatos.c
+	"ValidarDatos.h"
 

@@ -9,20 +9,29 @@
 
 int controller_loadFromText(char* path, LinkedList* pArrayListEmployee)
 {
+    FILE *pFile;
+    if(path != NULL || pArrayListEmployee != NULL){
+        pFile = fopen(path,"r");
+        parser_EmployeeFromText(pFile,pArrayListEmployee);
+    }
     return 1;
 }
 
 
 int controller_loadFromBinary(char* path, LinkedList* pArrayListEmployee)
 {
+    FILE *pFile;
+    if(path != NULL || pArrayListEmployee != NULL){
+        pFile = fopen(path,"r");
+        parser_EmployeeFromBinary(pFile,pArrayListEmployee);
+    }
     return 1;
 }
 
 
 int controller_addEmployee(LinkedList* pArrayListEmployee)
 {
-
-return 1;
+    return 1;
 }
 
 
@@ -52,7 +61,6 @@ int controller_sortEmployee(LinkedList* pArrayListEmployee)
 
 int controller_saveAsText(char* path, LinkedList* pArrayListEmployee)
 {
-
     return 1;
 }
 
