@@ -24,6 +24,7 @@ int main()
     int opcion;
     LinkedList* listaEmpleados = ll_newLinkedList();
     do{
+
         printf("Menu:\n");
         printf("1. Cargar los datos de los empleados desde el archivo data.csv (modo texto).\n");
         printf("2. Cargar los datos de los empleados desde el archivo data.csv (modo binario).\n");
@@ -35,6 +36,7 @@ int main()
         printf("8. Guardar los datos de los empleados en el archivo data.csv (modo texto).\n");
         printf("9. Guardar los datos de los empleados en el archivo data.csv (modo binario).\n");
         printf("10. Salir\n");
+
         scanf("%d",&opcion);
 
         switch(opcion)
@@ -46,20 +48,25 @@ int main()
                 controller_loadFromBinary("data.bin",listaEmpleados);
                 break;
             case 3:
-                //controller_addEmployee(listaEmpleados);
+                controller_addEmployee(listaEmpleados);
                 break;
             case 4:
-
+                //controller_editEmployee(listaEmpleados);
                 break;
             case 5:
+                //controller_removeEmployee(listaEmpleados);
                 break;
             case 6:
+                //controller_ListEmployee(listaEmpleados);
                 break;
             case 7:
+                //controller_sortEmployee(listaEmpleados);
                 break;
             case 8:
+                //controller_saveAsText(listaEmpleados);
                 break;
             case 9:
+                //controller_saveAsBinary(listaEmpleados);
                 break;
         }
         system("pause");

@@ -10,13 +10,22 @@ Employee* employee_new()
 Employee* employee_newParametros(char* idStr,char* nombreStr,char* horasTrabajadasStr,char* sueldoStr)
 {
     Employee* this = employee_new();
-    int id = atoi(idStr);
-    if(!employee_setId(this,id) && !employee_setNombre(this,nombreStr) && !employee_setHorasTrabajadas(this,atoi(horasTrabajadasStr))){
+    int id;
+    int horasTrabajadas;
+    int sueldo;
 
-        return this;
+    if(this!=NULL){
+        id = atoi(idStr);
+        horasTrabajadas = atoi(horasTrabajadasStr);
+        sueldo = atoi(sueldoStr);
+        employee_setId(this,id);
+        employee_setNombre(this,nombreStr);
+        employee_setHorasTrabajadas(this,horasTrabajadas);
+        employee_setSueldo(this,sueldo);
+    }else{
+        employee_delete(this);
     }
-    employee_delete(this);
-    return NULL;
+    return this;
 }
 
 void employee_delete(Employee* this){
@@ -28,10 +37,10 @@ int employee_setNombre(Employee* this,char* nombre)
     int retorno = 1;
 	if(this != NULL && nombre != NULL)
 	{
-		if(isValidNombre(nombre,100))
+		if(isValidNombre(nombre,50))
 		{
 			retorno = 0;
-			strncpy(this->nombre,nombre,100);
+			strncpy(this->nombre,nombre,50);
 		}
 	}
 	return retorno;
@@ -43,7 +52,7 @@ int employee_getNombre(Employee* this,char* nombre)
 	if(this != NULL && nombre != NULL)
 	{
 		retorno = 0;
-		strncpy(nombre,this->nombre,100);
+		strncpy(nombre,this->nombre,50);
 	}
 	return retorno;
 }
@@ -148,3 +157,10 @@ int employee_CompareById(Employee* e1, Employee* e2)
     return strcmp(e1->nombre, e2->nombre);
 }
 
+void printEmployee(Employee* employee){
+   // printf("    ID      Nombre      Horas trabajadas     Sueldo  \n");
+    printf("    %d      %s                %d              %d    \n",employee->id,
+                                                   employee->nombre,
+                                                   employee->horasTrabajadas,
+                                                   employee->sueldo);
+}
