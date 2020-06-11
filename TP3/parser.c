@@ -3,7 +3,7 @@
 int parser_EmployeeFromText(FILE* pFile, LinkedList* pArrayListEmployee)
 {
     int r,i=0;
-    int tamLinkedList = ll_len(pArrayListEmployee);
+    ll_clear(pArrayListEmployee); //Por si ya habia cargado datos desde otro archivo
     char var1[50],var2[50],var3[50],var4[50];
     Employee* auxEmployee;
     if(pFile == NULL){
@@ -22,7 +22,7 @@ int parser_EmployeeFromText(FILE* pFile, LinkedList* pArrayListEmployee)
         else{
             break;
         }
-    }while(!feof(pFile) || i<tamLinkedList);
+    }while(!feof(pFile));
     //controller_ListEmployee(pArrayListEmployee);
     fclose(pFile);
     return 1;

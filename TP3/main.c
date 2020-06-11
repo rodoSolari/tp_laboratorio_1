@@ -45,8 +45,7 @@ int main()
                 controller_loadFromText("data.csv",listaEmpleados);
                 break;
             case 2:
-                //controller_loadFromBinary("data.bin",listaEmpleados);
-                controller_loadFromBinary("nuevoArchivo.bin",listaEmpleados);
+                controller_loadFromBinary("data.bin",listaEmpleados);
                 break;
             case 3:
                 controller_addEmployee(listaEmpleados);

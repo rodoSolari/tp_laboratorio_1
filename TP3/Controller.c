@@ -25,7 +25,7 @@ int controller_loadFromText(char* path, LinkedList* pArrayListEmployee)
 int controller_loadFromBinary(char* path, LinkedList* pArrayListEmployee)
 {
     FILE *pFile;
-    if(path != NULL || pArrayListEmployee != NULL){
+    if(path != NULL && pArrayListEmployee != NULL){
         pFile = fopen(path,"rb");
         parser_EmployeeFromBinary(pFile,pArrayListEmployee);
         printf("Cargado con exito del archivo %s a la lista \n",path);
@@ -74,6 +74,7 @@ int controller_editEmployee(LinkedList* pArrayListEmployee)
     int sueldo;
     int opcion;
     Employee* employee;
+
     printf("Ingrese el id a buscar : ");
     scanf(" %d",&id);
     indice = getIndexOfEmployeeById(pArrayListEmployee,id);
@@ -123,6 +124,7 @@ int controller_removeEmployee(LinkedList* pArrayListEmployee)
 {
     int id;
     int indice;
+    int respuesta = 0;
 
     printf("Ingrese el id a buscar : ");
     scanf(" %d",&id);
@@ -131,13 +133,14 @@ int controller_removeEmployee(LinkedList* pArrayListEmployee)
         printf("Empleado a eliminar : \n");
         printEmployee(ll_get(pArrayListEmployee,indice-1));
         ll_remove(pArrayListEmployee,indice-1);
+        respuesta = 1;
         printf("Eliminado con exito, al presionar una tecla se mostrara la lista\n");
         system("pause");
         controller_ListEmployee(pArrayListEmployee);
     }else{
         printf("No se encontro el empleado a eliminar\n");
     }
-    return 1;
+    return respuesta;
 }
 
 
@@ -145,6 +148,7 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee)
 {
     int tamLinkedList = ll_len(pArrayListEmployee);
     int i;
+    printf("    ID      Nombre      Horas trabajadas     Sueldo  \n");
     for(i=0;i<tamLinkedList;i++){
         printEmployee(ll_get(pArrayListEmployee,i));
     }
@@ -164,11 +168,12 @@ int controller_sortEmployee(LinkedList* pArrayListEmployee)
         scanf("%d",&opcion);
         switch(opcion){
             case 1:
-                ll_sort(pArrayListEmployee,employee_CompareByName,1);
                 printf("Ordenando...\n");//Tarda unos segundos en ordenar
+                ll_sort(pArrayListEmployee,employee_CompareByName,1);
                 controller_ListEmployee(pArrayListEmployee);
                 break;
             case 2:
+                printf("Ordenando...\n");//Tarda unos segundos en ordenar
                 ll_sort(pArrayListEmployee,employee_CompareById,1);
                 controller_ListEmployee(pArrayListEmployee);
                 break;
@@ -187,21 +192,25 @@ int controller_saveAsText(char* path, LinkedList* pArrayListEmployee)
 {
     int i=0;
     int tamLinkedList = ll_len(pArrayListEmployee);
+    int respuesta;
+
     FILE* pFile;
     pFile = fopen(path,"w");
     Employee* employee;
 
     if(pFile == NULL || pArrayListEmployee == NULL){
-        return -1;
+        respuesta = -1;
     }
-    fprintf(pFile,"id,nombre,horasTrabajadas,sueldo\n"); //imprimo la cabecera en el nuevo archivo
-    do{
-        employee = ll_get(pArrayListEmployee,i);
-        fprintf(pFile,"%d  %s  %d  %d\n",employee->id,employee->nombre,employee->horasTrabajadas,employee->sueldo);
-        i++;
-    }while(i<tamLinkedList);
-    fclose(pFile);
-    return 1;
+    else{
+        fprintf(pFile,"id,nombre,horasTrabajadas,sueldo\n"); //imprimo la cabecera en el nuevo archivo
+        do{
+            employee = ll_get(pArrayListEmployee,i);
+            fprintf(pFile,"%d  %s  %d  %d\n",employee->id,employee->nombre,employee->horasTrabajadas,employee->sueldo);
+            i++;
+        }while(i<tamLinkedList);
+        fclose(pFile);
+    }
+    return respuesta;
 }
 
 
@@ -218,13 +227,14 @@ int controller_saveAsBinary(char* path, LinkedList* pArrayListEmployee)
     if(path == NULL || pArrayListEmployee == NULL){
         return -1;
     }
-    //fwrite(cabecera,sizeof(cabecera),1,pFile); //Imprimo la cabecera
+    //fwrite(cabecera,sizeof(100),1,pFile); //Imprimo la cabecera
     do{
         employee = ll_get(pArrayListEmployee,i);
         fwrite(employee,sizeof(Employee),1,pFile);
         i++;
     }while(i<tamLinkedList);
-    return 1;
 
+    fclose(pFile);
+    return 1;
 }
 
