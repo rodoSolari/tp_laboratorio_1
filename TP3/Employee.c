@@ -1,5 +1,3 @@
-#include <stdlib.h>
-#include <string.h>
 #include "Employee.h"
 
 
@@ -130,22 +128,31 @@ int employee_getHorasTrabajadas(Employee* this,int* horasTrabajadas)
 }
 
 
-int employee_CompareByName(Employee* e1, Employee* e2)
+int employee_CompareByName(void* e1, void* e2)
 {
-
-    return strcmp(e1->nombre, e2->nombre);
+    char nombrePrimerEmployee[50];
+    char nombreSegundoEmployee[50];
+    employee_getNombre(e1,nombrePrimerEmployee);
+    employee_getNombre(e2,nombreSegundoEmployee);
+    if(strcmp(nombrePrimerEmployee, nombreSegundoEmployee)>0){
+        return 1;
+    }
+    return 0;
 }
 
-int employee_CompareById(Employee* e1, Employee* e2)
+int employee_CompareById(void* e1, void* e2)
 {
+    int idPrimerEmployee, idSegundoEmployee;
+    employee_getId(e1,&idPrimerEmployee);
+    employee_getId(e2,&idSegundoEmployee);
 
-    if(e1->id > e2->id)
+    if(idPrimerEmployee > idSegundoEmployee)
     {
         return 1;
     }
     else
     {
-        if(e1->id < e2->id)
+        if(idPrimerEmployee < idSegundoEmployee)
         {
             return -1;
         }
@@ -154,7 +161,6 @@ int employee_CompareById(Employee* e1, Employee* e2)
             return 0;
         }
     }
-    return strcmp(e1->nombre, e2->nombre);
 }
 
 void printEmployee(Employee* employee){
@@ -163,4 +169,18 @@ void printEmployee(Employee* employee){
                                                    employee->nombre,
                                                    employee->horasTrabajadas,
                                                    employee->sueldo);
+}
+
+int getIndexOfEmployeeById(LinkedList* LinkedList, int id){
+    int tam = ll_len(LinkedList);
+    int i;
+    int indice = -1;
+    Employee* employee;
+    for(i=0;i<tam;i++){
+        employee = ll_get(LinkedList,i);
+        if(employee->id==id){
+            indice = id;
+        }
+    }
+    return indice;
 }

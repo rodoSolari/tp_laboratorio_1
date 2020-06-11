@@ -33,8 +33,8 @@ int main()
         printf("5. Baja de empleado\n");
         printf("6. Listar empleados\n");
         printf("7. Ordenar empleados\n");
-        printf("8. Guardar los datos de los empleados en el archivo data.csv (modo texto).\n");
-        printf("9. Guardar los datos de los empleados en el archivo data.csv (modo binario).\n");
+        printf("8. Guardar los datos de los empleados en el archivo 'archivoNuevo' (modo texto).\n");
+        printf("9. Guardar los datos de los empleados en el archivo 'archivoNuevo' (modo binario).\n");
         printf("10. Salir\n");
 
         scanf("%d",&opcion);
@@ -45,28 +45,29 @@ int main()
                 controller_loadFromText("data.csv",listaEmpleados);
                 break;
             case 2:
-                controller_loadFromBinary("data.bin",listaEmpleados);
+                //controller_loadFromBinary("data.bin",listaEmpleados);
+                controller_loadFromBinary("nuevoArchivo.bin",listaEmpleados);
                 break;
             case 3:
                 controller_addEmployee(listaEmpleados);
                 break;
             case 4:
-                //controller_editEmployee(listaEmpleados);
+                controller_editEmployee(listaEmpleados);
                 break;
             case 5:
-                //controller_removeEmployee(listaEmpleados);
+                controller_removeEmployee(listaEmpleados);
                 break;
             case 6:
-                //controller_ListEmployee(listaEmpleados);
+                controller_ListEmployee(listaEmpleados);
                 break;
             case 7:
-                //controller_sortEmployee(listaEmpleados);
+                controller_sortEmployee(listaEmpleados);
                 break;
             case 8:
-                //controller_saveAsText(listaEmpleados);
+                controller_saveAsText("nuevoArchivo.csv",listaEmpleados);
                 break;
             case 9:
-                //controller_saveAsBinary(listaEmpleados);
+                controller_saveAsBinary("nuevoArchivo.bin",listaEmpleados);
                 break;
         }
         system("pause");
