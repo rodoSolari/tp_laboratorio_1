@@ -10,12 +10,12 @@ Employee* employee_newParametros(char* idStr,char* nombreStr,char* horasTrabajad
     Employee* this = employee_new();
     int id;
     int horasTrabajadas;
-    int sueldo;
+    float sueldo;
 
     if(this!=NULL){
         id = atoi(idStr);
         horasTrabajadas = atoi(horasTrabajadasStr);
-        sueldo = atoi(sueldoStr);
+        sueldo = atof(sueldoStr);
         employee_setId(this,id);
         employee_setNombre(this,nombreStr);
         employee_setHorasTrabajadas(this,horasTrabajadas);
@@ -35,7 +35,7 @@ int employee_setNombre(Employee* this,char* nombre)
     int retorno = 1;
 	if(this != NULL && nombre != NULL)
 	{
-		if(isValidNombre(nombre,50))
+		if(isValidString(nombre))
 		{
 			retorno = 0;
 			strncpy(this->nombre,nombre,50);
@@ -55,9 +55,7 @@ int employee_getNombre(Employee* this,char* nombre)
 	return retorno;
 }
 
-
-
-int employee_setSueldo(Employee* this,int sueldo)
+int employee_setSueldo(Employee* this,float sueldo)
 {
     int retorno = 1;
 	if(this != NULL && sueldo >= 0)
@@ -67,7 +65,7 @@ int employee_setSueldo(Employee* this,int sueldo)
 	}
 	return retorno;
 }
-int employee_getSueldo(Employee* this,int* sueldo)
+int employee_getSueldo(Employee* this,float* sueldo)
 {
     int retorno = 1;
 	if(this != NULL && sueldo != NULL)
@@ -164,7 +162,7 @@ int employee_CompareById(void* e1, void* e2)
 }
 
 void printEmployee(Employee* employee){
-    printf("\n%5d%12s%15d%18d   \n",employee->id,
+    printf("\n%5d%12s%15d%18.2f   \n",employee->id,
                                     employee->nombre,
                                     employee->horasTrabajadas,
                                     employee->sueldo);

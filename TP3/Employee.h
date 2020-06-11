@@ -11,7 +11,7 @@ typedef struct
     int id;
     char nombre[100];
     int horasTrabajadas;
-    int sueldo;
+    float sueldo;
 }Employee;
 
 Employee* employee_new();
@@ -27,8 +27,8 @@ int employee_getNombre(Employee* this,char* nombre);
 int employee_setHorasTrabajadas(Employee* this,int horasTrabajadas);
 int employee_getHorasTrabajadas(Employee* this,int* horasTrabajadas);
 
-int employee_setSueldo(Employee* this,int sueldo);
-int employee_getSueldo(Employee* this,int* sueldo);
+int employee_setSueldo(Employee* this,float sueldo);
+int employee_getSueldo(Employee* this,float* sueldo);
 
 int employee_CompareByName(void* e1, void* e2);
 int employee_CompareById(void* e1, void* e2);

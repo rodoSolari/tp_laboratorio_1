@@ -5,8 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-int isValidNombre(char* cadena,int longitud);
-//int esNumerica(char* cadena);
+int isValidString(char* cadena);
 
 int esString(char arrayString[]);
 

@@ -1,14 +1,13 @@
 #include "ValidarDatos.h"
 
-//Usado para la funcion  employee_setNombre
-int isValidNombre(char* cadena,int longitud)
+int isValidString(char* cadena)
 {
 	int i=0;
 	int retorno = 1;
 
-	if(cadena != NULL && longitud > 0)
+	if(cadena != NULL)
 	{
-		for(i=0 ; cadena[i] != '\0' && i < longitud; i++)
+		for(i=0 ; cadena[i] != '\0'; i++)
 		{
 			if((cadena[i] < 'A' || cadena[i] > 'Z' ) && (cadena[i] < 'a' || cadena[i] > 'z' ))
 			{
@@ -73,7 +72,7 @@ void getFloat(float* number, char* message, char* errorMessage){
     gets(string);
     *number=atof(string);
 
-    while(esFloat(string)==0){
+    while(esFloat(string)==0 || *number<0){
         printf("%s", errorMessage);
         fflush(stdin);
         gets(string);
@@ -113,7 +112,7 @@ void getString(char* arrayString, char* message, char* errorMessage)
     fflush(stdin);
     gets(arrayString);
 
-    while(esString(arrayString)==0){
+    while(isValidString(arrayString)==0){
         printf("%s", errorMessage);
         fflush(stdin);
         gets(arrayString);

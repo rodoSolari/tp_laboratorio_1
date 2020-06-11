@@ -258,7 +258,7 @@
 1591749843 source:c:\users\montreal\desktop\tp\tp3\validardatos.c
 	"ValidarDatos.h"
 
-1591887367 source:c:\users\montreal\desktop\tp3\controller.c
+1591890533 source:c:\users\montreal\desktop\tp3\controller.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -269,7 +269,7 @@
 
 1591877595 c:\users\montreal\desktop\tp3\linkedlist.h
 
-1591877595 c:\users\montreal\desktop\tp3\employee.h
+1591890445 c:\users\montreal\desktop\tp3\employee.h
 	"ValidarDatos.h"
 	"LinkedList.h"
 	<stdio.h>
@@ -291,7 +291,7 @@
 
 1591877595 c:\users\montreal\desktop\tp3\controller.h
 
-1591882961 source:c:\users\montreal\desktop\tp3\employee.c
+1591890568 source:c:\users\montreal\desktop\tp3\employee.c
 	"Employee.h"
 
 1591887262 source:c:\users\montreal\desktop\tp3\main.c
@@ -306,7 +306,7 @@
 1591885770 source:c:\users\montreal\desktop\tp3\parser.c
 	"parser.h"
 
-1591889398 source:c:\users\montreal\desktop\tp3\validardatos.c
+1591890084 source:c:\users\montreal\desktop\tp3\validardatos.c
 	"ValidarDatos.h"
 
 1591885255 c:\users\montreal\desktop\tp3\menu.h
@@ -316,4 +316,63 @@
 
 1591886278 source:c:\users\montreal\desktop\tp3\menu.c
 	"Menu.h"
+
+1591906655 source:c:\users\rodolfo\desktop\tp3\controller.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+	"Employee.h"
+	"parser.h"
+	"Menu.h"
+
+1591877595 c:\users\rodolfo\desktop\tp3\linkedlist.h
+
+1591906215 c:\users\rodolfo\desktop\tp3\employee.h
+	"ValidarDatos.h"
+	"LinkedList.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1591905774 c:\users\rodolfo\desktop\tp3\validardatos.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1591877595 c:\users\rodolfo\desktop\tp3\parser.h
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+	"Controller.h"
+
+1591877595 c:\users\rodolfo\desktop\tp3\controller.h
+
+1591885255 c:\users\rodolfo\desktop\tp3\menu.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1591887262 source:c:\users\rodolfo\desktop\tp3\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+	"Controller.h"
+	"Employee.h"
+	"Menu.h"
+
+1591886278 source:c:\users\rodolfo\desktop\tp3\menu.c
+	"Menu.h"
+
+1591885770 source:c:\users\rodolfo\desktop\tp3\parser.c
+	"parser.h"
+
+1591906733 source:c:\users\rodolfo\desktop\tp3\employee.c
+	"Employee.h"
+
+1591906617 source:c:\users\rodolfo\desktop\tp3\validardatos.c
+	"ValidarDatos.h"
 

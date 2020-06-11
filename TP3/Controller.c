@@ -49,14 +49,14 @@ int controller_addEmployee(LinkedList* pArrayListEmployee)
     int idNewEmployee;
     char nombreNewEmployee[50];
     int horasTrabajadasNewEmployee;
-    int sueldoNewEmployee;
+    float sueldoNewEmployee;
     int respuesta;
 
     if(pArrayListEmployee!=NULL){
         newEmployee = employee_new();
         getString(nombreNewEmployee,"Ingrese el nombre : ","Error , ingrese un nombre valido ");
         getInt(&horasTrabajadasNewEmployee,"Ingrese las horas trabajadas : ","Error, ingrese un numero valido : ",0,500);
-        getInt(&sueldoNewEmployee,"Ingrese el sueldo : ","Error, ingrese un numero valido : ",0,50000);
+        getFloat(&sueldoNewEmployee,"Ingrese el sueldo : ","Error, ingrese un numero valido : ");
         idNewEmployee = ll_len(pArrayListEmployee)+1;
 
         employee_setId(newEmployee,idNewEmployee);
@@ -82,7 +82,7 @@ int controller_editEmployee(LinkedList* pArrayListEmployee)
     int indice;
     char nombre[50];
     int horasTrabajadas;
-    int sueldo;
+    float sueldo;
     int opcion;
     int respuesta;
     Employee* employee;
@@ -110,7 +110,7 @@ int controller_editEmployee(LinkedList* pArrayListEmployee)
                             employee_setHorasTrabajadas(employee,horasTrabajadas);
                             break;
                         case 3:
-                            getInt(&sueldo,"Ingrese el sueldo : ","Error, ingrese un numero valido : ",0,50000);
+                            getFloat(&sueldo,"Ingrese el sueldo : ","Error, ingrese un numero valido : ");
                             employee_setSueldo(employee,sueldo);
                             break;
                         default:
@@ -230,7 +230,7 @@ int controller_saveAsText(char* path, LinkedList* pArrayListEmployee)
             fprintf(pFile,"id,nombre,horasTrabajadas,sueldo\n"); //imprimo la cabecera en el nuevo archivo
             do{
                 employee = ll_get(pArrayListEmployee,i);
-                fprintf(pFile,"%d,%s,%d,%d\n",employee->id,employee->nombre,employee->horasTrabajadas,employee->sueldo);
+                fprintf(pFile,"%d,%s,%d,%2.f\n",employee->id,employee->nombre,employee->horasTrabajadas,employee->sueldo);
                 i++;
             }while(i<tamLinkedList);
             respuesta = 1;
