@@ -4,6 +4,7 @@
 #include "LinkedList.h"
 #include "Controller.h"
 #include "Employee.h"
+#include "Menu.h"
 
 /****************************************************
     Menu:
@@ -22,30 +23,23 @@
 int main()
 {
     int opcion;
+    int retorno;
     LinkedList* listaEmpleados = ll_newLinkedList();
     do{
 
-        printf("Menu:\n");
-        printf("1. Cargar los datos de los empleados desde el archivo data.csv (modo texto).\n");
-        printf("2. Cargar los datos de los empleados desde el archivo data.csv (modo binario).\n");
-        printf("3. Alta de empleado\n");
-        printf("4. Modificar datos de empleado\n");
-        printf("5. Baja de empleado\n");
-        printf("6. Listar empleados\n");
-        printf("7. Ordenar empleados\n");
-        printf("8. Guardar los datos de los empleados en el archivo 'archivoNuevo' (modo texto).\n");
-        printf("9. Guardar los datos de los empleados en el archivo 'archivoNuevo' (modo binario).\n");
-        printf("10. Salir\n");
+        imprimirMenuPrincipal();
 
         scanf("%d",&opcion);
 
         switch(opcion)
         {
             case 1:
-                controller_loadFromText("data.csv",listaEmpleados);
+                retorno = controller_loadFromText("data.csv",listaEmpleados);
+                imprimirRetornoController(retorno,"Cargado con exito del archivo","Error, no existe el archivo");
                 break;
             case 2:
-                controller_loadFromBinary("data.bin",listaEmpleados);
+                retorno = controller_loadFromBinary("data.bin",listaEmpleados);
+                imprimirRetornoController(retorno,"Cargado con exito del archivo","Error, no existe el archivo");
                 break;
             case 3:
                 controller_addEmployee(listaEmpleados);

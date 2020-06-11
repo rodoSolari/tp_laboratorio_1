@@ -4,36 +4,38 @@
 #include "LinkedList.h"
 #include "Employee.h"
 #include "parser.h"
-
+#include "Menu.h"
 
 
 int controller_loadFromText(char* path, LinkedList* pArrayListEmployee)
 {
     FILE *pFile;
+    int respuesta;
     if(path != NULL || pArrayListEmployee != NULL){
         pFile = fopen(path,"r");
         if((parser_EmployeeFromText(pFile,pArrayListEmployee)==1)){
-            printf("Cargado con exito del archivo %s a la lista \n",path);
+            respuesta = 1;
         }else{
-            printf("Error, no existe el archivo");
+            respuesta = 0;
         }
     }
-    return 1;
+    return respuesta;
 }
 
 
 int controller_loadFromBinary(char* path, LinkedList* pArrayListEmployee)
 {
     FILE *pFile;
+    int respuesta;
     if(path != NULL && pArrayListEmployee != NULL){
         pFile = fopen(path,"rb");
         if(parser_EmployeeFromBinary(pFile,pArrayListEmployee)==1){
-            printf("Cargado con exito del archivo %s a la lista \n",path);
+            respuesta = 1;
         }else{
-            printf("Error, no existe el archivo");
+            respuesta = 0;
         }
     }
-    return 1;
+    return respuesta;
 }
 
 
@@ -87,12 +89,7 @@ int controller_editEmployee(LinkedList* pArrayListEmployee)
         printEmployee(employee);
         if(pArrayListEmployee!=NULL){
             do{
-                printf("Menu para modificacion:\n");
-                printf("1. Modificar nombre\n");
-                printf("2. Modificar horas trabajadas\n");
-                printf("3. Modificar sueldo\n");
-                printf("4. Salir\n");
-                printf("\n");
+                imprimirMenuModificarEmployee();
                 scanf("%d",&opcion);
                 switch(opcion){
                     case 1:
