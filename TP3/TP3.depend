@@ -376,3 +376,62 @@
 1591906617 source:c:\users\rodolfo\desktop\tp3\validardatos.c
 	"ValidarDatos.h"
 
+1591907590 source:c:\users\rodolfo\desktop\prueba\tp_laboratorio_1-master\tp3\controller.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+	"Employee.h"
+	"parser.h"
+	"Menu.h"
+
+1591907590 c:\users\rodolfo\desktop\prueba\tp_laboratorio_1-master\tp3\linkedlist.h
+
+1591907590 c:\users\rodolfo\desktop\prueba\tp_laboratorio_1-master\tp3\employee.h
+	"ValidarDatos.h"
+	"LinkedList.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1591907590 c:\users\rodolfo\desktop\prueba\tp_laboratorio_1-master\tp3\validardatos.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1591907590 c:\users\rodolfo\desktop\prueba\tp_laboratorio_1-master\tp3\parser.h
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+	"Controller.h"
+
+1591907590 c:\users\rodolfo\desktop\prueba\tp_laboratorio_1-master\tp3\controller.h
+
+1591907590 c:\users\rodolfo\desktop\prueba\tp_laboratorio_1-master\tp3\menu.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1591907590 source:c:\users\rodolfo\desktop\prueba\tp_laboratorio_1-master\tp3\employee.c
+	"Employee.h"
+
+1591907590 source:c:\users\rodolfo\desktop\prueba\tp_laboratorio_1-master\tp3\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+	"Controller.h"
+	"Employee.h"
+	"Menu.h"
+
+1591907590 source:c:\users\rodolfo\desktop\prueba\tp_laboratorio_1-master\tp3\menu.c
+	"Menu.h"
+
+1591912456 source:c:\users\rodolfo\desktop\prueba\tp_laboratorio_1-master\tp3\parser.c
+	"parser.h"
+
+1591907590 source:c:\users\rodolfo\desktop\prueba\tp_laboratorio_1-master\tp3\validardatos.c
+	"ValidarDatos.h"
+

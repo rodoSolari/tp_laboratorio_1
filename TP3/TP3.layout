@@ -7,19 +7,19 @@
 			<Cursor1 position="1233" topLine="24" />
 		</Cursor>
 	</File>
-	<File name="Controller.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="8" zoom_2="0">
+	<File name="Employee.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="6" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="4073" topLine="182" />
+			<Cursor1 position="802" topLine="17" />
 		</Cursor>
 	</File>
-	<File name="Menu.c" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="5" zoom_2="0">
+	<File name="parser.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="630" topLine="0" />
+			<Cursor1 position="133" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="ValidarDatos.c" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="4" zoom_2="0">
+	<File name="main.c" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="5" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1323" topLine="65" />
+			<Cursor1 position="2487" topLine="44" />
 		</Cursor>
 	</File>
 	<File name="ValidarDatos.h" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -29,12 +29,17 @@
 	</File>
 	<File name="parser.c" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="6" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1208" topLine="19" />
+			<Cursor1 position="782" topLine="10" />
 		</Cursor>
 	</File>
-	<File name="main.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="5" zoom_2="0">
+	<File name="Menu.c" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="5" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2487" topLine="10" />
+			<Cursor1 position="630" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="Employee.c" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="6" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2543" topLine="127" />
 		</Cursor>
 	</File>
 	<File name="Controller.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -42,19 +47,14 @@
 			<Cursor1 position="577" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Employee.c" open="1" top="1" tabpos="8" split="0" active="1" splitpos="0" zoom_1="6" zoom_2="0">
+	<File name="Controller.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="8" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2699" topLine="127" />
+			<Cursor1 position="4073" topLine="182" />
 		</Cursor>
 	</File>
-	<File name="parser.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="ValidarDatos.c" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="4" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="133" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="Employee.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="6" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="802" topLine="22" />
+			<Cursor1 position="1323" topLine="65" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

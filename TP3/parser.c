@@ -19,6 +19,7 @@ int parser_EmployeeFromText(FILE* pFile, LinkedList* pArrayListEmployee)
                 auxEmployee = employee_newParametros(var1,var2,var3,var4);
                 ll_add(pArrayListEmployee,auxEmployee);
                 i++;
+                printf("%d\n",i);
             }
             else{
                 break;
