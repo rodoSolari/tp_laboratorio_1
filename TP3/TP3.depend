@@ -258,3 +258,52 @@
 1591749843 source:c:\users\montreal\desktop\tp\tp3\validardatos.c
 	"ValidarDatos.h"
 
+1591883116 source:c:\users\montreal\desktop\tp3\controller.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+	"Employee.h"
+	"parser.h"
+
+1591877595 c:\users\montreal\desktop\tp3\linkedlist.h
+
+1591877595 c:\users\montreal\desktop\tp3\employee.h
+	"ValidarDatos.h"
+	"LinkedList.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1591877595 c:\users\montreal\desktop\tp3\validardatos.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1591877595 c:\users\montreal\desktop\tp3\parser.h
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+	"Controller.h"
+
+1591877595 c:\users\montreal\desktop\tp3\controller.h
+
+1591882961 source:c:\users\montreal\desktop\tp3\employee.c
+	"Employee.h"
+
+1591880704 source:c:\users\montreal\desktop\tp3\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+	"Controller.h"
+	"Employee.h"
+
+1591880660 source:c:\users\montreal\desktop\tp3\parser.c
+	"parser.h"
+
+1591877595 source:c:\users\montreal\desktop\tp3\validardatos.c
+	"ValidarDatos.h"
+

@@ -27,8 +27,11 @@ int controller_loadFromBinary(char* path, LinkedList* pArrayListEmployee)
     FILE *pFile;
     if(path != NULL && pArrayListEmployee != NULL){
         pFile = fopen(path,"rb");
-        parser_EmployeeFromBinary(pFile,pArrayListEmployee);
-        printf("Cargado con exito del archivo %s a la lista \n",path);
+        if(parser_EmployeeFromBinary(pFile,pArrayListEmployee)==1){
+            printf("Cargado con exito del archivo %s a la lista \n",path);
+        }else{
+            printf("Error, no existe el archivo");
+        }
     }
     return 1;
 }
@@ -76,7 +79,7 @@ int controller_editEmployee(LinkedList* pArrayListEmployee)
     Employee* employee;
 
     printf("Ingrese el id a buscar : ");
-    scanf(" %d",&id);
+    scanf("%d",&id);
     indice = getIndexOfEmployeeById(pArrayListEmployee,id);
     if(indice>=0){
         employee = ll_get(pArrayListEmployee,indice-1);  //porque el indice de la lista comienza en cero
@@ -134,9 +137,7 @@ int controller_removeEmployee(LinkedList* pArrayListEmployee)
         printEmployee(ll_get(pArrayListEmployee,indice-1));
         ll_remove(pArrayListEmployee,indice-1);
         respuesta = 1;
-        printf("Eliminado con exito, al presionar una tecla se mostrara la lista\n");
-        system("pause");
-        controller_ListEmployee(pArrayListEmployee);
+        printf("Eliminado con exito!\n");
     }else{
         printf("No se encontro el empleado a eliminar\n");
     }
@@ -205,7 +206,7 @@ int controller_saveAsText(char* path, LinkedList* pArrayListEmployee)
         fprintf(pFile,"id,nombre,horasTrabajadas,sueldo\n"); //imprimo la cabecera en el nuevo archivo
         do{
             employee = ll_get(pArrayListEmployee,i);
-            fprintf(pFile,"%d  %s  %d  %d\n",employee->id,employee->nombre,employee->horasTrabajadas,employee->sueldo);
+            fprintf(pFile,"%d,%s,%d,%d\n",employee->id,employee->nombre,employee->horasTrabajadas,employee->sueldo);
             i++;
         }while(i<tamLinkedList);
         fclose(pFile);

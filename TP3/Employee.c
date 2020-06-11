@@ -178,7 +178,8 @@ int getIndexOfEmployeeById(LinkedList* LinkedList, int id){
     for(i=0;i<tam;i++){
         employee = ll_get(LinkedList,i);
         if(employee->id==id){
-            indice = id;
+            indice = i+1;
+            break;
         }
     }
     return indice;
