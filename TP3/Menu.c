@@ -26,7 +26,9 @@ void imprimirMenuModificarEmployee(){
 void imprimirRetornoController(int retorno,char mensaje[], char errorMensaje[]){
     if(retorno == 1){
         printf("%s\n",mensaje);
-    }else{
+    }else if(retorno == 0){
         printf("%s\n",errorMensaje);
+    }else{
+        printf("Error, no se encuentra la lista o el archivo");
     }
 }

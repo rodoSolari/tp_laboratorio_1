@@ -6,20 +6,6 @@
 #include "Employee.h"
 #include "Menu.h"
 
-/****************************************************
-    Menu:
-     1. Cargar los datos de los empleados desde el archivo data.csv (modo texto).
-     2. Cargar los datos de los empleados desde el archivo data.csv (modo binario).
-     3. Alta de empleado
-     4. Modificar datos de empleado
-     5. Baja de empleado
-     6. Listar empleados
-     7. Ordenar empleados
-     8. Guardar los datos de los empleados en el archivo data.csv (modo texto).
-     9. Guardar los datos de los empleados en el archivo data.csv (modo binario).
-    10. Salir
-*****************************************************/
-
 int main()
 {
     int opcion;
@@ -42,25 +28,32 @@ int main()
                 imprimirRetornoController(retorno,"Cargado con exito del archivo","Error, no existe el archivo");
                 break;
             case 3:
-                controller_addEmployee(listaEmpleados);
+                retorno = controller_addEmployee(listaEmpleados);
+                imprimirRetornoController(retorno,"Cargado con exito nuevo empleado","Error, no existe la lista o el archivo");
                 break;
             case 4:
-                controller_editEmployee(listaEmpleados);
+                retorno = controller_editEmployee(listaEmpleados);
+                imprimirRetornoController(retorno,"Modificado con exito!","No se encontro el id del empleado");
                 break;
             case 5:
-                controller_removeEmployee(listaEmpleados);
+                retorno = controller_removeEmployee(listaEmpleados);
+                imprimirRetornoController(retorno,"Eliminado con exito!","No se encontro el empleado a eliminar");
                 break;
             case 6:
-                controller_ListEmployee(listaEmpleados);
+                retorno = controller_ListEmployee(listaEmpleados);
+                imprimirRetornoController(retorno,"Lista de empleados realizado con exito ","La lista se encuentra vacia o no existe");
                 break;
             case 7:
-                controller_sortEmployee(listaEmpleados);
+                retorno = controller_sortEmployee(listaEmpleados);
+                imprimirRetornoController(retorno,"Lista de empleados ordenados realizado con exito"," ");
                 break;
             case 8:
-                controller_saveAsText("data.csv",listaEmpleados);
+                retorno = controller_saveAsText("data.csv",listaEmpleados);
+                imprimirRetornoController(retorno,"Lista de empleados guardado en modo texto con exito"," ");
                 break;
             case 9:
                 controller_saveAsBinary("data.bin",listaEmpleados);
+                imprimirRetornoController(retorno,"Lista de empleados guardado en modo binario con exito ","No existe el nombre del archivo ingresado");
                 break;
         }
         system("pause");
