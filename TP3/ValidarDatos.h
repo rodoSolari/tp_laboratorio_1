@@ -6,7 +6,7 @@
 #include <string.h>
 
 int isValidNombre(char* cadena,int longitud);
-int esNumerica(char* cadena, int limite);
+//int esNumerica(char* cadena);
 
 int esString(char arrayString[]);
 
@@ -34,7 +34,7 @@ void getInt(int* number, char* message, char* errorMessage,int minimo,int maximo
  * \param Cadena de caracteres a ser verificada
  * \return Retorna 1 (vardadero) si la cadena es flotante y 0 (falso) si no lo es
  */
-int esNumerico(char stringNumber[]);
+int esNumerico(char* cadena);
 
 /**
  * \brief Verifica si la cadena ingresada es flotante

@@ -276,7 +276,7 @@
 	<stdlib.h>
 	<string.h>
 
-1591887834 c:\users\montreal\desktop\tp3\validardatos.h
+1591888596 c:\users\montreal\desktop\tp3\validardatos.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -306,7 +306,7 @@
 1591885770 source:c:\users\montreal\desktop\tp3\parser.c
 	"parser.h"
 
-1591877595 source:c:\users\montreal\desktop\tp3\validardatos.c
+1591889398 source:c:\users\montreal\desktop\tp3\validardatos.c
 	"ValidarDatos.h"
 
 1591885255 c:\users\montreal\desktop\tp3\menu.h

@@ -1,4 +1,6 @@
 #include "ValidarDatos.h"
+
+//Usado para la funcion  employee_setNombre
 int isValidNombre(char* cadena,int longitud)
 {
 	int i=0;
@@ -18,14 +20,14 @@ int isValidNombre(char* cadena,int longitud)
 	return retorno;
 }
 
-int esNumerica(char* cadena, int limite)
+int esNumerico(char* cadena)
 {
 	int retorno = -1; // ERROR
 	int i;
-	if(cadena != NULL && limite > 0)
+	if(cadena != NULL)
 	{
 		retorno = 1; // VERDADERO
-		for(i=0;i<limite && cadena[i] != '\0';i++)
+		for(i=0;cadena[i]!='\0';i++)
 		{
 			if(i==0 && (cadena[i] == '+' || cadena[i] == '-'))
 			{
@@ -41,19 +43,6 @@ int esNumerica(char* cadena, int limite)
 		//BREAK
 	}
 	return retorno;
-}
-
-int esNumerico(char stringNumber[]){
-    int respuesta=1;
-    int i;
-
-    for(i=0;stringNumber[i]!='\0';i++){
-        if(stringNumber[i]<'0' || stringNumber[i]>'9'){
-            respuesta=0;
-            break;
-        }
-    }
-    return respuesta;
 }
 
 int esFloat(char stringNumber[]){
