@@ -5,9 +5,13 @@
 #include <stdlib.h>
 #include <string.h>
 
+/**
+ * \brief Verifica si la cadena ingresada es un string
+ * \param Cadena de caracteres a ser verificada
+ * \return Retorna 1 (vardadero) si la cadena es flotante y -1 (falso) si no lo es
+ */
 int isValidString(char* cadena);
 
-int esString(char arrayString[]);
 
 /**
  * \brief Solicita un string(cadena de caracteres) al usuario, luego vuelve a pedirle a ingresarlo por si no es el tipo de dato ingresado

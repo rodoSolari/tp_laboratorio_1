@@ -53,7 +53,7 @@ int main()
                 break;
             case 9:
                 controller_saveAsBinary("data.bin",listaEmpleados);
-                imprimirRetornoController(retorno,"Lista de empleados guardado en modo binario con exito ","No existe el nombre del archivo ingresado");
+                imprimirRetornoController(retorno,"Lista de empleados guardado en modo binario con exito "," ");
                 break;
         }
         system("pause");

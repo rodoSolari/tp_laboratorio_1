@@ -258,7 +258,7 @@
 1591749843 source:c:\users\montreal\desktop\tp\tp3\validardatos.c
 	"ValidarDatos.h"
 
-1591981941 source:c:\users\montreal\desktop\tp3\controller.c
+1591997152 source:c:\users\montreal\desktop\tp3\controller.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -269,19 +269,19 @@
 
 1591982757 c:\users\montreal\desktop\tp3\linkedlist.h
 
-1591981999 c:\users\montreal\desktop\tp3\employee.h
+1591995341 c:\users\montreal\desktop\tp3\employee.h
 	"ValidarDatos.h"
 	"LinkedList.h"
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 
-1591920141 c:\users\montreal\desktop\tp3\validardatos.h
+1591995529 c:\users\montreal\desktop\tp3\validardatos.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 
-1591920141 c:\users\montreal\desktop\tp3\parser.h
+1591986162 c:\users\montreal\desktop\tp3\parser.h
 	<string.h>
 	<stdio.h>
 	<stdlib.h>
@@ -289,12 +289,12 @@
 	"Employee.h"
 	"Controller.h"
 
-1591920141 c:\users\montreal\desktop\tp3\controller.h
+1591996318 c:\users\montreal\desktop\tp3\controller.h
 
-1591981993 source:c:\users\montreal\desktop\tp3\employee.c
+1591993478 source:c:\users\montreal\desktop\tp3\employee.c
 	"Employee.h"
 
-1591920141 source:c:\users\montreal\desktop\tp3\main.c
+1591985864 source:c:\users\montreal\desktop\tp3\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -303,18 +303,18 @@
 	"Employee.h"
 	"Menu.h"
 
-1591981094 source:c:\users\montreal\desktop\tp3\parser.c
+1591986095 source:c:\users\montreal\desktop\tp3\parser.c
 	"parser.h"
 
-1591920141 source:c:\users\montreal\desktop\tp3\validardatos.c
+1591995495 source:c:\users\montreal\desktop\tp3\validardatos.c
 	"ValidarDatos.h"
 
-1591920141 c:\users\montreal\desktop\tp3\menu.h
+1591986946 c:\users\montreal\desktop\tp3\menu.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 
-1591979582 source:c:\users\montreal\desktop\tp3\menu.c
+1591997883 source:c:\users\montreal\desktop\tp3\menu.c
 	"Menu.h"
 
 1591906655 source:c:\users\rodolfo\desktop\tp3\controller.c

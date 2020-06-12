@@ -7,7 +7,7 @@ int parser_EmployeeFromText(FILE* pFile, LinkedList* pArrayListEmployee)
     ll_clear(pArrayListEmployee); //Por si ya habia cargado datos desde otro archivo
     char var1[50],var2[50],var3[50],var4[50];
     Employee* auxEmployee;
-    if(pFile == NULL){
+    if(pFile == NULL || pArrayListEmployee == NULL){
         respuesta = -1;
     }else{
         do{
@@ -37,7 +37,7 @@ int parser_EmployeeFromBinary(FILE* pFile, LinkedList* pArrayListEmployee)
     ll_clear(pArrayListEmployee); //Por si ya habia cargado datos desde otro archivo
     Employee* auxEmployee;
 
-    if(pFile == NULL){
+    if(pFile == NULL || pArrayListEmployee == NULL){
         respuesta = -1;
     }
     do{

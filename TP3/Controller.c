@@ -50,7 +50,7 @@ int controller_addEmployee(LinkedList* pArrayListEmployee)
     char nombreNewEmployee[50];
     int horasTrabajadasNewEmployee;
     float sueldoNewEmployee;
-    int respuesta;
+    int respuesta = -1;
 
     if(pArrayListEmployee!=NULL){
         newEmployee = employee_new();
@@ -67,8 +67,6 @@ int controller_addEmployee(LinkedList* pArrayListEmployee)
         ll_add(pArrayListEmployee,newEmployee);
         printEmployee(newEmployee);
         respuesta = 1;
-    }else{
-        respuesta = -1;
     }
     controller_ListEmployee(pArrayListEmployee);
     return respuesta;
@@ -84,7 +82,7 @@ int controller_editEmployee(LinkedList* pArrayListEmployee)
     int horasTrabajadas;
     float sueldo;
     int opcion;
-    int respuesta;
+    int respuesta = -1;
     Employee* employee;
     if(pArrayListEmployee == NULL){
         respuesta = -1;
@@ -120,7 +118,7 @@ int controller_editEmployee(LinkedList* pArrayListEmployee)
                     }
                 }while(opcion!=4);
                 respuesta = 1;
-
+                printEmployee(employee);
             }
         }else{
             respuesta = 0;
@@ -134,7 +132,7 @@ int controller_removeEmployee(LinkedList* pArrayListEmployee)
 {
     int id;
     int indice;
-    int respuesta;
+    int respuesta = -1;
     if(pArrayListEmployee==NULL){
         respuesta = -1;
     }else{
@@ -176,7 +174,7 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee)
 int controller_sortEmployee(LinkedList* pArrayListEmployee)
 {
     int opcion;
-    int respuesta;
+    int respuesta = -1;
     if(pArrayListEmployee == NULL){
         respuesta = -1;
     }else{
@@ -230,7 +228,7 @@ int controller_saveAsText(char* path, LinkedList* pArrayListEmployee)
 
     FILE* pFile;
     if(path==NULL){
-        respuesta = 0;
+        respuesta = -1;
     }else{
         pFile = fopen(path,"w");
         Employee* employee;
@@ -258,10 +256,9 @@ int controller_saveAsBinary(char* path, LinkedList* pArrayListEmployee)
     int i=0;
     int tamLinkedList = ll_len(pArrayListEmployee);
     FILE* pFile;
-    int respuesta;
-    //char cabecera[100]="id,nombre,horasTrabajadas,sueldo";
+    int respuesta = 0;
     if(path==NULL){
-        respuesta = 0;
+        respuesta = -1;
     }else{
         pFile = fopen(path,"wb");
         Employee* employee;
@@ -269,7 +266,6 @@ int controller_saveAsBinary(char* path, LinkedList* pArrayListEmployee)
         if(path == NULL || pArrayListEmployee == NULL){
             respuesta = -1;
         }else{
-            //fwrite(cabecera,sizeof(100),1,pFile); //Imprimo la cabecera
             do{
                 employee = ll_get(pArrayListEmployee,i);
                 fwrite(employee,sizeof(Employee),1,pFile);

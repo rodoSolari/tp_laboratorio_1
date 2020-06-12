@@ -32,10 +32,10 @@ void employee_delete(Employee* this){
 
 int employee_setNombre(Employee* this,char* nombre)
 {
-    int retorno = 1;
+    int retorno = 0;
 	if(this != NULL && nombre != NULL)
 	{
-        retorno = 0;
+        retorno = 1;
         strncpy(this->nombre,nombre,50);
 	}
 	return retorno;
@@ -43,10 +43,10 @@ int employee_setNombre(Employee* this,char* nombre)
 
 int employee_getNombre(Employee* this,char* nombre)
 {
-    int retorno = 1;
+    int retorno = 0;
 	if(this != NULL && nombre != NULL)
 	{
-		retorno = 0;
+		retorno = 1;
 		strncpy(nombre,this->nombre,50);
 	}
 	return retorno;
@@ -54,10 +54,10 @@ int employee_getNombre(Employee* this,char* nombre)
 
 int employee_setSueldo(Employee* this,float sueldo)
 {
-    int retorno = 1;
+    int retorno = 0;
 	if(this != NULL && sueldo >= 0)
 	{
-		retorno = 0;
+		retorno = 1;
 		this->sueldo = sueldo;
 	}
 	return retorno;
@@ -65,10 +65,10 @@ int employee_setSueldo(Employee* this,float sueldo)
 
 int employee_getSueldo(Employee* this,float* sueldo)
 {
-    int retorno = 1;
+    int retorno = 0;
 	if(this != NULL && sueldo != NULL)
 	{
-		retorno = 0;
+		retorno = 1;
 		*sueldo = this->sueldo;
 	}
 	return retorno;
@@ -76,10 +76,10 @@ int employee_getSueldo(Employee* this,float* sueldo)
 
 int employee_setId(Employee* this,int id)
 {
-    int retorno = 1;
+    int retorno = 0;
     static int maximoId = -1;
     if(this!=NULL){
-        retorno = 0;
+        retorno = 1;
         if(id<0){
             maximoId++;
             this->id = maximoId;
@@ -94,10 +94,10 @@ int employee_setId(Employee* this,int id)
 }
 int employee_getId(Employee* this,int* id)
 {
-    int retorno = 1;
+    int retorno = 0;
 	if(this != NULL && id != NULL)
 	{
-		retorno = 0;
+		retorno = 1;
 		*id = this->id;
 	}
 	return retorno;
@@ -114,10 +114,10 @@ int employee_setHorasTrabajadas(Employee* this,int horasTrabajadas)
 }
 int employee_getHorasTrabajadas(Employee* this,int* horasTrabajadas)
 {
-    int retorno = 1;
+    int retorno = 0;
 	if(this != NULL && horasTrabajadas != NULL)
 	{
-		retorno = 0;
+		retorno = 1;
 		*horasTrabajadas = this->horasTrabajadas;
 	}
 	return retorno;
@@ -126,14 +126,15 @@ int employee_getHorasTrabajadas(Employee* this,int* horasTrabajadas)
 
 int employee_CompareByName(void* e1, void* e2)
 {
+    int respuesta = 0;
     char nombrePrimerEmployee[50];
     char nombreSegundoEmployee[50];
     employee_getNombre(e1,nombrePrimerEmployee);
     employee_getNombre(e2,nombreSegundoEmployee);
     if(stricmp(nombrePrimerEmployee, nombreSegundoEmployee)>0){
-        return 1;
+        respuesta = 1;
     }
-    return 0;
+    return respuesta;
 }
 
 int employee_CompareById(void* e1, void* e2)

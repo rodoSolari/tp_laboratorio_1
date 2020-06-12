@@ -96,16 +96,6 @@ void getInt(int* number, char* message, char* errorMessage,int minimo,int maximo
 }
 
 
-int esString(char arrayString[]){
-    int respuesta=1;
-    for(int i=0; arrayString[i]!='\0'; i++){
-        if((arrayString[i]<'a' || arrayString[i]>'z') && (arrayString[i]<'A' || arrayString[i]>'Z')){
-            respuesta=0;
-            break;
-        }
-    }
-    return respuesta;
-}
 
 void getString(char* arrayString, char* message, char* errorMessage)
 {
