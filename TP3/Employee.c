@@ -206,10 +206,11 @@ int employee_CompareByHorasTrabajadas(void* e1, void* e2)
 }
 
 void printEmployee(Employee* employee){
-    printf("\n%5d%12s%15d%18.2f   \n",employee->id,
+    printf("%5d%12s%15d%18.2f   \n",employee->id,
                                     employee->nombre,
                                     employee->horasTrabajadas,
                                     employee->sueldo);
+    printf("\n");
 }
 
 int getIndexOfEmployeeById(LinkedList* LinkedList, int id){

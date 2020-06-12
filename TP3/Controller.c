@@ -102,14 +102,20 @@ int controller_editEmployee(LinkedList* pArrayListEmployee)
                         case 1:
                             getString(nombre,"Ingrese el nombre : ","Error , ingrese un nombre valido ");
                             employee_setNombre(employee,nombre);
+                            printf("Modificado\n");
+                            printEmployee(employee);
                             break;
                         case 2:
                             getInt(&horasTrabajadas,"Ingrese las horas trabajadas : ","Error, ingrese un numero valido : ",0,500);
                             employee_setHorasTrabajadas(employee,horasTrabajadas);
+                            printf("Modificado\n");
+                            printEmployee(employee);
                             break;
                         case 3:
                             getFloat(&sueldo,"Ingrese el sueldo : ","Error, ingrese un numero valido : ");
                             employee_setSueldo(employee,sueldo);
+                            printf("Modificado\n");
+                            printEmployee(employee);
                             break;
                         default:
                             if(opcion!=4){
@@ -118,7 +124,6 @@ int controller_editEmployee(LinkedList* pArrayListEmployee)
                     }
                 }while(opcion!=4);
                 respuesta = 1;
-                printEmployee(employee);
             }
         }else{
             respuesta = 0;
