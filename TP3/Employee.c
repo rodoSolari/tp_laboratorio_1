@@ -35,11 +35,8 @@ int employee_setNombre(Employee* this,char* nombre)
     int retorno = 1;
 	if(this != NULL && nombre != NULL)
 	{
-		if(isValidString(nombre))
-		{
-			retorno = 0;
-			strncpy(this->nombre,nombre,50);
-		}
+        retorno = 0;
+        strncpy(this->nombre,nombre,50);
 	}
 	return retorno;
 }

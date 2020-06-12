@@ -2,12 +2,13 @@
 
 int isValidString(char* cadena)
 {
+    int longitud = 50;
 	int i=0;
 	int retorno = 1;
 
 	if(cadena != NULL)
 	{
-		for(i=0 ; cadena[i] != '\0'; i++)
+		for(i=0 ; cadena[i] != '\0' && i<longitud; i++)
 		{
 			if((cadena[i] < 'A' || cadena[i] > 'Z' ) && (cadena[i] < 'a' || cadena[i] > 'z' ))
 			{
