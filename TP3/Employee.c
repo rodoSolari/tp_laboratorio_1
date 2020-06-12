@@ -62,6 +62,7 @@ int employee_setSueldo(Employee* this,float sueldo)
 	}
 	return retorno;
 }
+
 int employee_getSueldo(Employee* this,float* sueldo)
 {
     int retorno = 1;
@@ -129,7 +130,7 @@ int employee_CompareByName(void* e1, void* e2)
     char nombreSegundoEmployee[50];
     employee_getNombre(e1,nombrePrimerEmployee);
     employee_getNombre(e2,nombreSegundoEmployee);
-    if(strcmp(nombrePrimerEmployee, nombreSegundoEmployee)>0){
+    if(stricmp(nombrePrimerEmployee, nombreSegundoEmployee)>0){
         return 1;
     }
     return 0;
@@ -148,6 +149,51 @@ int employee_CompareById(void* e1, void* e2)
     else
     {
         if(idPrimerEmployee < idSegundoEmployee)
+        {
+            return -1;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+}
+
+int employee_CompareBySueldo(void* e1, void* e2){
+    float sueldoPrimerEmployee, sueldoSegundoEmployee;
+    employee_getSueldo(e1,&sueldoPrimerEmployee);
+    employee_getSueldo(e2,&sueldoSegundoEmployee);
+
+    if(sueldoPrimerEmployee > sueldoSegundoEmployee)
+    {
+        return 1;
+    }
+    else
+    {
+        if(sueldoPrimerEmployee < sueldoSegundoEmployee)
+        {
+            return -1;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+}
+
+int employee_CompareByHorasTrabajadas(void* e1, void* e2)
+{
+    int horasTrabajadasPrimerEmployee, horasTrabajadasSegundoEmployee;
+    employee_getHorasTrabajadas(e1,&horasTrabajadasPrimerEmployee);
+    employee_getHorasTrabajadas(e2,&horasTrabajadasSegundoEmployee);
+
+    if(horasTrabajadasPrimerEmployee > horasTrabajadasSegundoEmployee)
+    {
+        return 1;
+    }
+    else
+    {
+        if(horasTrabajadasPrimerEmployee < horasTrabajadasSegundoEmployee)
         {
             return -1;
         }

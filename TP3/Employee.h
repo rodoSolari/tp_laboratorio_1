@@ -32,6 +32,8 @@ int employee_getSueldo(Employee* this,float* sueldo);
 
 int employee_CompareByName(void* e1, void* e2);
 int employee_CompareById(void* e1, void* e2);
+int employee_CompareBySueldo(void* e1, void* e2);
+int employee_CompareByHorasTrabajadas(void* e1, void* e2);
 
 void printEmployee(Employee* employee);
 int getIndexOfEmployeeById(LinkedList* LinkedList, int id);

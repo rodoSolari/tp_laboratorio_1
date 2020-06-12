@@ -9,8 +9,8 @@ void imprimirMenuPrincipal(){
     printf("5. Baja de empleado\n");
     printf("6. Listar empleados\n");
     printf("7. Ordenar empleados\n");
-    printf("8. Guardar los datos de los empleados en el archivo 'data.csv' (modo texto).\n");
-    printf("9. Guardar los datos de los empleados en el archivo 'data.bin' (modo binario).\n");
+    printf("8. Guardar los datos de los empleados en el archivo data.csv (modo texto).\n");
+    printf("9. Guardar los datos de los empleados en el archivo data.bin (modo binario).\n");
     printf("10. Salir\n");
 }
 

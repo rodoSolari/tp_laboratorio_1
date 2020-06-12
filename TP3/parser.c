@@ -41,13 +41,16 @@ int parser_EmployeeFromBinary(FILE* pFile, LinkedList* pArrayListEmployee)
         respuesta = -1;
     }
     do{
+        if(feof(pFile)){
+            break;
+        }
         auxEmployee = employee_new();
         if(auxEmployee!=NULL){
-            fread(auxEmployee,sizeof(Employee),1,pFile);
-            ll_add(pArrayListEmployee,auxEmployee);
-            i++;
-        }
-        else{
+            if(fread(auxEmployee,sizeof(Employee),1,pFile)==1){
+                ll_add(pArrayListEmployee,auxEmployee);
+                i++;
+            }
+        }else{
             break;
         }
         respuesta = 1;

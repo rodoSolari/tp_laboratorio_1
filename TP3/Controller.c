@@ -184,7 +184,9 @@ int controller_sortEmployee(LinkedList* pArrayListEmployee)
             printf("Ingrese una opcion : \n");
             printf("1. Ordenar por nombre\n");
             printf("2. Ordenar por id\n");
-            printf("3. Salir\n");
+            printf("3. Ordenar por horas trabajadas\n");
+            printf("4. Ordenar por sueldo\n");
+            printf("5. Salir\n");
             scanf("%d",&opcion);
             switch(opcion){
                 case 1:
@@ -197,13 +199,23 @@ int controller_sortEmployee(LinkedList* pArrayListEmployee)
                     ll_sort(pArrayListEmployee,employee_CompareById,1);
                     controller_ListEmployee(pArrayListEmployee);
                     break;
+                case 3:
+                    printf("Ordenando...\n");//Tarda unos segundos en ordenar
+                    ll_sort(pArrayListEmployee,employee_CompareByHorasTrabajadas,1);
+                    controller_ListEmployee(pArrayListEmployee);
+                    break;
+                case 4:
+                    printf("Ordenando...\n");//Tarda unos segundos en ordenar
+                    ll_sort(pArrayListEmployee,employee_CompareBySueldo,1);
+                    controller_ListEmployee(pArrayListEmployee);
+                    break;
                 default:
-                    if(opcion!=3){
+                    if(opcion!=5){
                         printf("Error, ingrese un valor valido\n");
                     }
                     break;
             }
-        }while(opcion!=3);
+        }while(opcion!=5);
         respuesta = 1;
     }
     return respuesta;
