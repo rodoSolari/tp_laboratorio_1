@@ -84,7 +84,7 @@ int controller_editEmployee(LinkedList* pArrayListEmployee)
     int opcion;
     int respuesta = -1;
     Employee* employee;
-    if(pArrayListEmployee == NULL){
+    if(pArrayListEmployee == NULL || ll_len(pArrayListEmployee)==0){
         respuesta = -1;
     }else{
         printf("Ingrese el id a buscar : ");
@@ -138,7 +138,7 @@ int controller_removeEmployee(LinkedList* pArrayListEmployee)
     int id;
     int indice;
     int respuesta = -1;
-    if(pArrayListEmployee==NULL){
+    if(pArrayListEmployee==NULL || ll_len(pArrayListEmployee)==0){
         respuesta = -1;
     }else{
         printf("Ingrese el id a buscar : ");
@@ -180,7 +180,7 @@ int controller_sortEmployee(LinkedList* pArrayListEmployee)
 {
     int opcion;
     int respuesta = -1;
-    if(pArrayListEmployee == NULL){
+    if(pArrayListEmployee == NULL || ll_len(pArrayListEmployee)==0){
         respuesta = -1;
     }else{
         do{
