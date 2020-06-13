@@ -32,6 +32,6 @@ void imprimirRetornoController(int retorno,char mensaje[], char errorMensaje[]){
     }else if(retorno == 0){
         printf("%s\n",errorMensaje);
     }else{
-        printf("Error, no se encuentra la lista o el archivo");
+        printf("Error, no se encuentra la lista o el archivo\n");
     }
 }
