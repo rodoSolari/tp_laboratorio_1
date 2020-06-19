@@ -56,8 +56,8 @@ static Node* getNode(LinkedList* this, int nodeIndex)
 {
 
     Node* pNode = NULL;
-    int i=1;
-    if(this != NULL || nodeIndex>this->size){
+    int i=0;
+    if(this != NULL && (nodeIndex<this->size && nodeIndex>=0)){
         pNode = this->pFirstNode;
         while(i<nodeIndex){
             pNode = pNode->pNextNode;
@@ -97,22 +97,41 @@ static int addNode(LinkedList* this, int nodeIndex,void* pElement)
     Node* prev;
     Node* next;
     Node* nuevoNodo;
-    if(this!=NULL || nodeIndex<0 || nodeIndex>ll_len(this)){
+    int indice = 0;
+    int lenghtLinkedList = ll_len(this);
+
+    if(this!=NULL || (nodeIndex>=0 && nodeIndex<lenghtLinkedList)){
+        printf("ENTRE al if \n");
+        nuevoNodo = (Node*) malloc(sizeof(Node));
         nuevoNodo->pElement = pElement;
         nuevoNodo->pNextNode = NULL;
-        if(nodeIndex == 0 && ll_isEmpty(this)){
+        /*prev = this->pFirstNode;
+        next = prev->pNextNode;*/
+        if(nodeIndex == 0 && ll_isEmpty(this)){         //Agregar elemento con lista vacia
+            printf("ENTRE al if 1\n");
             this->pFirstNode = nuevoNodo;
-        }else if(nodeIndex == 0 && !ll_isEmpty(this)){
-            nuevoNodo->pNextNode = this->pFirstNode
-        }else if(nodeIndex == ll_len(this)){
+        }else if(nodeIndex == 0 && !ll_isEmpty(this)){  //Agregar elemento al inicio
+            printf("ENTRE al if 2\n");
+            prev->pNextNode = this->pFirstNode;
+            next = getNode(this,nodeIndex);
+            nuevoNodo->pNextNode = next;
+            prev->pNextNode = nuevoNodo;
 
-        }else{          //Cuando no estoy en el inicio ni en el final de la lista
-
+        }else if(nodeIndex == lenghtLinkedList){        //Ultimo
+            printf("ENTRE al if 3\n");
+            next = getNode(this,lenghtLinkedList);
+            next->pNextNode = nuevoNodo;
+        }else{                                          //Cuando no estoy en el inicio ni en el final de la lista
+            printf("ENTRE al if 4\n");
+            prev->pNextNode = getNode(this,nodeIndex-1);
+            next = getNode(this,nodeIndex);
+            nuevoNodo->pNextNode = next;
+            prev->pNextNode = nuevoNodo;
         }
 
+        this->size++;
         returnAux = 0;
     }
-
 
     return returnAux;
 }
@@ -142,13 +161,13 @@ int test_addNode(LinkedList* this, int nodeIndex,void* pElement)
  */
 int ll_add(LinkedList* this, void* pElement)
 {
-    /*int returnAux = -1;
-    int indice = 0;
-    Node* actual;
-    if(LinkedList!=NULL){
-
+    int returnAux = -1;
+    if(this!=NULL){
+        if(addNode(this,ll_len(this)-1,pElement) == 0){
+            returnAux = 0;
+        }
     }
-*/
+
     return returnAux;
 }
 //  ******* OJO CORREGIR *******************
