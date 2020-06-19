@@ -101,29 +101,24 @@ static int addNode(LinkedList* this, int nodeIndex,void* pElement)
     int lenghtLinkedList = ll_len(this);
 
     if(this!=NULL || (nodeIndex>=0 && nodeIndex<lenghtLinkedList)){
-        printf("ENTRE al if \n");
-        nuevoNodo = (Node*) malloc(sizeof(Node));
+        nuevoNodo = (Node*)malloc(sizeof(Node));
         nuevoNodo->pElement = pElement;
         nuevoNodo->pNextNode = NULL;
-        /*prev = this->pFirstNode;
-        next = prev->pNextNode;*/
-        if(nodeIndex == 0 && ll_isEmpty(this)){         //Agregar elemento con lista vacia
-            printf("ENTRE al if 1\n");
-            this->pFirstNode = nuevoNodo;
-        }else if(nodeIndex == 0 && !ll_isEmpty(this)){  //Agregar elemento al inicio
-            printf("ENTRE al if 2\n");
-            prev->pNextNode = this->pFirstNode;
-            next = getNode(this,nodeIndex);
-            nuevoNodo->pNextNode = next;
-            prev->pNextNode = nuevoNodo;
 
+        if(nodeIndex == 0){
+            if(ll_isEmpty(this)){                       //Agregar elemento con lista vacia
+                this->pFirstNode = nuevoNodo;
+            }else{                                      //Agregar elemento al inicio
+                prev = this->pFirstNode;
+                next = getNode(this,nodeIndex);
+                nuevoNodo->pNextNode = next;
+                prev->pNextNode = nuevoNodo;
+            }
         }else if(nodeIndex == lenghtLinkedList){        //Ultimo
-            printf("ENTRE al if 3\n");
-            next = getNode(this,lenghtLinkedList);
+            next = getNode(this,lenghtLinkedList-1);
             next->pNextNode = nuevoNodo;
         }else{                                          //Cuando no estoy en el inicio ni en el final de la lista
-            printf("ENTRE al if 4\n");
-            prev->pNextNode = getNode(this,nodeIndex-1);
+            prev = getNode(this,nodeIndex-1);
             next = getNode(this,nodeIndex);
             nuevoNodo->pNextNode = next;
             prev->pNextNode = nuevoNodo;
@@ -163,7 +158,7 @@ int ll_add(LinkedList* this, void* pElement)
 {
     int returnAux = -1;
     if(this!=NULL){
-        if(addNode(this,ll_len(this)-1,pElement) == 0){
+        if(addNode(this,ll_len(this),pElement) == 0){
             returnAux = 0;
         }
     }
