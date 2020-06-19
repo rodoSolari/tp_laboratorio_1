@@ -37,9 +37,8 @@ int ll_len(LinkedList* this)
     int returnAux = -1;
     if(this!=NULL)
     {
-        returnAux = 5;//this->size;
+        returnAux = this->size;
     }
-
 
     return returnAux;
 }
@@ -55,9 +54,16 @@ int ll_len(LinkedList* this)
  */
 static Node* getNode(LinkedList* this, int nodeIndex)
 {
+
     Node* pNode = NULL;
-
-
+    int i=1;
+    if(this != NULL || nodeIndex>this->size){
+        pNode = this->pFirstNode;
+        while(i<nodeIndex){
+            pNode = pNode->pNextNode;
+            i++;
+        }
+    }
 
     return pNode;
 }
@@ -91,7 +97,21 @@ static int addNode(LinkedList* this, int nodeIndex,void* pElement)
     Node* prev;
     Node* next;
     Node* nuevoNodo;
+    if(this!=NULL || nodeIndex<0 || nodeIndex>ll_len(this)){
+        nuevoNodo->pElement = pElement;
+        nuevoNodo->pNextNode = NULL;
+        if(nodeIndex == 0 && ll_isEmpty(this)){
+            this->pFirstNode = nuevoNodo;
+        }else if(nodeIndex == 0 && !ll_isEmpty(this)){
+            nuevoNodo->pNextNode = this->pFirstNode
+        }else if(nodeIndex == ll_len(this)){
 
+        }else{          //Cuando no estoy en el inicio ni en el final de la lista
+
+        }
+
+        returnAux = 0;
+    }
 
 
     return returnAux;
@@ -122,12 +142,13 @@ int test_addNode(LinkedList* this, int nodeIndex,void* pElement)
  */
 int ll_add(LinkedList* this, void* pElement)
 {
-    int returnAux = -1;
+    /*int returnAux = -1;
     int indice = 0;
     Node* actual;
+    if(LinkedList!=NULL){
 
-
-
+    }
+*/
     return returnAux;
 }
 //  ******* OJO CORREGIR *******************
@@ -142,8 +163,11 @@ int ll_add(LinkedList* this, void* pElement)
 void* ll_get(LinkedList* this, int index)
 {
     void* returnAux = NULL;
-
-
+    Node* nodoElemento;
+    if(this!=NULL || index>ll_len(this)){
+        nodoElemento = getNode(this,index);
+        returnAux = nodoElemento->pElement;
+    }
     return returnAux;
 }
 
@@ -160,8 +184,8 @@ void* ll_get(LinkedList* this, int index)
 int ll_set(LinkedList* this, int index,void* pElement)
 {
     int returnAux = -1;
-    Node* actual;
-    int cantidad;
+   /* Node* actual = getNode(this,index);
+    int cantidad;*/
 
 
     return returnAux;
@@ -254,7 +278,7 @@ int ll_isEmpty(LinkedList* this)
 
     if(this != NULL)
     {
-        if( ll_len(this))
+        if(ll_len(this))
         {
             returnAux = 0;
         }
