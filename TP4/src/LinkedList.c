@@ -100,7 +100,7 @@ static int addNode(LinkedList* this, int nodeIndex,void* pElement)
     int indice = 0;
     int lenghtLinkedList = ll_len(this);
 
-    if(this!=NULL && nodeIndex>=0 && nodeIndex<=lenghtLinkedList){
+    if(this!=NULL && nodeIndex>=0 && nodeIndex<=lenghtLinkedList){ //se pone nodeIndex<=lenghtLinkedList porque ll_add agrega a la ultima posicion
         nuevoNodo = (Node*)malloc(sizeof(Node));
         if(nuevoNodo!=NULL){
             nuevoNodo->pElement = pElement;
@@ -199,10 +199,14 @@ void* ll_get(LinkedList* this, int index)
 int ll_set(LinkedList* this, int index,void* pElement)
 {
     int returnAux = -1;
-   /* Node* actual = getNode(this,index);
-    int cantidad;*/
-
-
+    Node* nodo;
+    if(this!=NULL && index>=0 && index<ll_len(this)){
+        nodo = getNode(this,index);
+        if(nodo!=NULL){
+            nodo->pElement = pElement;
+            returnAux = 0;
+        }
+    }
     return returnAux;
 }
 
@@ -221,8 +225,19 @@ int ll_remove(LinkedList* this,int index)
     Node* actual;
     Node* next;
     int indice = 0;
-
-
+    if(this!=NULL && index>=0 && index<ll_len(this)){
+        actual = getNode(this,index);
+        if(actual!=NULL){
+            if(index>=0 && index<ll_len(this)-1){
+                next = actual;
+                free(actual);
+            }else{
+                free(actual);
+            }
+            this->size--;
+            returnAux = 0;
+        }
+    }
     return returnAux;
 }
 
@@ -238,9 +253,15 @@ int ll_clear(LinkedList* this)
 {
     int returnAux = -1;
     Node* nodo;
-    int i;
-
-
+    int i=0;
+    int lenghtLinkedList = ll_len(this);
+    if(this!=NULL){
+        while(i<lenghtLinkedList){
+            ll_remove(this,i);
+            i++;
+        }
+        returnAux = 0;
+    }
     return returnAux;
 }
 
