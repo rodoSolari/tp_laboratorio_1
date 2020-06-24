@@ -346,7 +346,7 @@ int ll_isEmpty(LinkedList* this)
 int ll_push(LinkedList* this, int index, void* pElement)
 {
     int returnAux = -1;
-    if(this!=NULL && index>=0 && index<=ll_len(this)){
+    if(this!=NULL && index>=0 && index<=ll_len(this)){ //  <= por si desea agregarlo despues del ultimo
         if(addNode(this,index,pElement)==0){
             returnAux = 0;
         }
@@ -366,16 +366,15 @@ int ll_push(LinkedList* this, int index, void* pElement)
  */
 void* ll_pop(LinkedList* this,int index)
 {
-    /*void* returnAux = NULL;
+    void* returnAux = NULL;
     Node* nodo;
     if(this!=NULL && index>=0 && index<ll_len(this)){
-        nodo = getNode(this,index);
-        ll_indexOf(this,nodo->pElement);
-        if(ll_remove(this,index)){
-            returnAux = 0;
+        nodo = getNode(this,index);                 //busco el nodo del indice
+        if(ll_remove(this,index)==0){
+            returnAux = nodo->pElement;             // obtengo el elemento del nodo eliminado
         }
     }
-    return returnAux;*/
+    return returnAux;
 }
 
 
@@ -390,7 +389,10 @@ void* ll_pop(LinkedList* this,int index)
 int ll_contains(LinkedList* this, void* pElement)
 {
     int returnAux = -1;
+    if(this!=NULL){
 
+
+    }
 
     return returnAux;
 }
@@ -409,8 +411,10 @@ int ll_containsAll(LinkedList* this,LinkedList* this2)
     int returnAux = -1;
     int i;
     Node* nodo;
+    if(this!= NULL || this2!=NULL){
 
 
+    }
     return returnAux;
 }
 
@@ -429,8 +433,10 @@ LinkedList* ll_subList(LinkedList* this,int from,int to)
     LinkedList* cloneArray = NULL;
     int i;
     void* pElement;
+    if(this!=NULL){
 
 
+    }
     return cloneArray;
 }
 
@@ -445,8 +451,10 @@ LinkedList* ll_subList(LinkedList* this,int from,int to)
 LinkedList* ll_clone(LinkedList* this)
 {
     LinkedList* cloneArray = NULL;
+    if(this!=NULL){
 
 
+    }
     return cloneArray;
 }
 
@@ -462,9 +470,10 @@ int ll_sort(LinkedList* this, int (*pFunc)(void*,void*), int order)
 {
     int returnAux =-1;
     void* pAux;
+    if(this!=NULL){
 
 
-
+    }
     return returnAux;
 }
 
