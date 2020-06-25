@@ -481,36 +481,30 @@ int ll_sort(LinkedList* this, int (*pFunc)(void*,void*), int order)
 {
     int returnAux =-1;
     void* pAux;
-    void* primerElemento;
-    void* segundoElemento;
-    int flagNoEstaOrdenado = 1;
-    int i = 1;
+    //void* primerElemento;
+    //void* segundoElemento;
+    int i,j;
     if(this!=NULL && (order==1 || order==0) && pFunc!=NULL){           //Bubble sort
-        printf("ENTRE AL IF\n");
-        while(flagNoEstaOrdenado){
-            flagNoEstaOrdenado = 0;
-            primerElemento = ll_get(this,i-1);
-            segundoElemento = ll_get(this,i);
-            while(i<ll_len(this)){
+        for(i=0;i<ll_len(this)-1;i++){
+            //primerElemento = ll_get(this,i);
+            for(j=i+1;j<ll_len(this);j++){
+                //segundoElemento = ll_get(this,j);
                 switch(order){
-                    case 0:     //Descendente
-                        if(pFunc(primerElemento,segundoElemento)<0){
-                            pAux = segundoElemento;
-                            ll_set(this,i-1,segundoElemento);
-                            ll_set(this,i,primerElemento);
+                    case 0:
+                        if(pFunc(ll_get(this,i),ll_get(this,j))<0){
+                            pAux =  ll_get(this,i);
+                            ll_set(this,i,ll_get(this,j));
+                            ll_set(this,j,pAux);
                         }
-                        flagNoEstaOrdenado = 1;
                         break;
-                    case 1:     //Ascendente
-                        if(pFunc(primerElemento,segundoElemento)>0){
-                            pAux = segundoElemento;
-                            ll_set(this,i-1,segundoElemento);
-                            ll_set(this,i,primerElemento);
+                    case 1:
+                        if(pFunc(ll_get(this,i),ll_get(this,j))>0){
+                            pAux = ll_get(this,i);
+                            ll_set(this,i,ll_get(this,j));
+                            ll_set(this,j,pAux);
                         }
-                        flagNoEstaOrdenado = 1;
                         break;
                 }
-                i++;
             }
         }
         returnAux = 0;
