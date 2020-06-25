@@ -481,9 +481,39 @@ int ll_sort(LinkedList* this, int (*pFunc)(void*,void*), int order)
 {
     int returnAux =-1;
     void* pAux;
-    if(this!=NULL){
-
-
+    void* primerElemento;
+    void* segundoElemento;
+    int flagNoEstaOrdenado = 1;
+    int i = 1;
+    if(this!=NULL && (order==1 || order==0) && pFunc!=NULL){           //Bubble sort
+        printf("ENTRE AL IF\n");
+        while(flagNoEstaOrdenado){
+            flagNoEstaOrdenado = 0;
+            primerElemento = ll_get(this,i-1);
+            segundoElemento = ll_get(this,i);
+            while(i<ll_len(this)){
+                switch(order){
+                    case 0:     //Descendente
+                        if(pFunc(primerElemento,segundoElemento)<0){
+                            pAux = segundoElemento;
+                            ll_set(this,i-1,segundoElemento);
+                            ll_set(this,i,primerElemento);
+                        }
+                        flagNoEstaOrdenado = 1;
+                        break;
+                    case 1:     //Ascendente
+                        if(pFunc(primerElemento,segundoElemento)>0){
+                            pAux = segundoElemento;
+                            ll_set(this,i-1,segundoElemento);
+                            ll_set(this,i,primerElemento);
+                        }
+                        flagNoEstaOrdenado = 1;
+                        break;
+                }
+                i++;
+            }
+        }
+        returnAux = 0;
     }
     return returnAux;
 }
