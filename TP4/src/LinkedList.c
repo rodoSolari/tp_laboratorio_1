@@ -448,7 +448,6 @@ LinkedList* ll_subList(LinkedList* this,int from,int to)
             ll_add(cloneArray,pElement);
             i++;
         }
-
     }
     return cloneArray;
 }
