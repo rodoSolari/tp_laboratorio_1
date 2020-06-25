@@ -97,7 +97,6 @@ static int addNode(LinkedList* this, int nodeIndex,void* pElement)
     Node* prev;
     Node* next;
     Node* nuevoNodo;
-    int indice = 0;
     int lenghtLinkedList = ll_len(this);
 
     if(this!=NULL && nodeIndex>=0 && nodeIndex<=lenghtLinkedList){ //se pone nodeIndex<=lenghtLinkedList porque ll_add agrega a la ultima posicion
@@ -224,7 +223,6 @@ int ll_remove(LinkedList* this,int index)
     int returnAux = -1;
     Node* actual;
     Node* prev;
-    int indice = 0;
     if(this!=NULL && index>=0 && index<ll_len(this)){
         actual = getNode(this,index);
         if(actual!=NULL){
@@ -254,7 +252,6 @@ int ll_remove(LinkedList* this,int index)
 int ll_clear(LinkedList* this)
 {
     int returnAux = -1;
-    Node* nodo;
     int i=0;
     int lenghtLinkedList = ll_len(this);
     if(this!=NULL){
@@ -390,8 +387,11 @@ int ll_contains(LinkedList* this, void* pElement)
 {
     int returnAux = -1;
     if(this!=NULL){
-
-
+        if(ll_indexOf(this,pElement)!=-1){      //Se encontro el indice del nodo que contiene el elemento
+            returnAux = 1;
+        }else{
+            returnAux = 0;
+        }
     }
 
     return returnAux;
@@ -409,11 +409,18 @@ int ll_contains(LinkedList* this, void* pElement)
 int ll_containsAll(LinkedList* this,LinkedList* this2)
 {
     int returnAux = -1;
-    int i;
+    int i=0;
     Node* nodo;
-    if(this!= NULL || this2!=NULL){
-
-
+    if(this!= NULL && this2!=NULL){
+        returnAux = 1;
+        while(i<ll_len(this2)){
+            nodo = getNode(this2,i);
+            if(ll_contains(this,nodo->pElement)==0){ //el elemento no esta contenido en la lista
+                returnAux = 0;
+                break;
+            }
+            i++;
+        }
     }
     return returnAux;
 }
@@ -431,10 +438,16 @@ int ll_containsAll(LinkedList* this,LinkedList* this2)
 LinkedList* ll_subList(LinkedList* this,int from,int to)
 {
     LinkedList* cloneArray = NULL;
-    int i;
+    int i = from; //valor de i desde
     void* pElement;
-    if(this!=NULL){
-
+    int lenghtLinkedList = ll_len(this);
+    if(this!=NULL && from>=0 && from<lenghtLinkedList && to>from && to<=lenghtLinkedList){
+        cloneArray = ll_newLinkedList();
+        while(i<to){
+            pElement = ll_get(this,i);
+            ll_add(cloneArray,pElement);
+            i++;
+        }
 
     }
     return cloneArray;
@@ -452,8 +465,7 @@ LinkedList* ll_clone(LinkedList* this)
 {
     LinkedList* cloneArray = NULL;
     if(this!=NULL){
-
-
+        cloneArray = ll_subList(this,0,ll_len(this));
     }
     return cloneArray;
 }
