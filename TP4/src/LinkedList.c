@@ -57,7 +57,7 @@ static Node* getNode(LinkedList* this, int nodeIndex)
 
     Node* pNode = NULL;
     int i=0;
-    if(this != NULL && nodeIndex<this->size && nodeIndex>=0){
+    if(this != NULL && nodeIndex<ll_len(this) && nodeIndex>=0){
         pNode = this->pFirstNode;
         while(i<nodeIndex){
             pNode = pNode->pNextNode;
@@ -97,9 +97,8 @@ static int addNode(LinkedList* this, int nodeIndex,void* pElement)
     Node* prev;
     Node* next;
     Node* nuevoNodo;
-    int lenghtLinkedList = ll_len(this);
 
-    if(this!=NULL && nodeIndex>=0 && nodeIndex<=lenghtLinkedList){ //se pone nodeIndex<=lenghtLinkedList porque ll_add agrega a la ultima posicion
+    if(this!=NULL && nodeIndex>=0 && nodeIndex<=ll_len(this)){ //se pone nodeIndex<=ll_len(this) porque ll_add agrega a la ultima posicion
         nuevoNodo = (Node*)malloc(sizeof(Node));
         if(nuevoNodo!=NULL){
             nuevoNodo->pElement = pElement;
@@ -114,8 +113,8 @@ static int addNode(LinkedList* this, int nodeIndex,void* pElement)
                     nuevoNodo->pNextNode = prev;
                     prev->pNextNode = nuevoNodo;
                 }
-            }else if(nodeIndex == lenghtLinkedList-1){        //Ultimo
-                next = getNode(this,lenghtLinkedList-1);
+            }else if(nodeIndex == ll_len(this)-1){        //Ultimo
+                next = getNode(this,ll_len(this)-1);
                 next->pNextNode = nuevoNodo;
             }else{                                          //Cuando no estoy en el inicio ni en el final de la lista
                 prev = getNode(this,nodeIndex-1);
@@ -165,11 +164,12 @@ int ll_add(LinkedList* this, void* pElement)
 
     return returnAux;
 }
-//  ******* OJO CORREGIR *******************
-/** \brief Permite realizar el test de la funcion addNode la cual es privada
+
+
+/** \brief Devuelve un elemento de la lista
  *
  * \param this LinkedList* Puntero a la lista
- * \param nodeIndex int Ubicacion del elemento a obtener
+ * \param index int Ubicacion del elemento a obtener
  * \return void* Retorna    (NULL) Error: si el puntero a la lista es NULL o (si el indice es menor a 0 o mayor al len de la lista)
                             (pElement) Si funciono correctamente
  *
@@ -253,9 +253,8 @@ int ll_clear(LinkedList* this)
 {
     int returnAux = -1;
     int i=0;
-    int lenghtLinkedList = ll_len(this);
     if(this!=NULL){
-        while(i<lenghtLinkedList){
+        while(i<ll_len(this)){
             ll_remove(this,i);
             i++;
         }
@@ -440,8 +439,7 @@ LinkedList* ll_subList(LinkedList* this,int from,int to)
     LinkedList* cloneArray = NULL;
     int i = from; //valor de i desde
     void* pElement;
-    int lenghtLinkedList = ll_len(this);
-    if(this!=NULL && from>=0 && from<lenghtLinkedList && to>from && to<=lenghtLinkedList){
+    if(this!=NULL && from>=0 && from<ll_len(this) && to>from && to<=ll_len(this)){
         cloneArray = ll_newLinkedList();
         while(i<to){
             pElement = ll_get(this,i);
